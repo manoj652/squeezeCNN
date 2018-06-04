@@ -1,0 +1,3 @@
+C:/Users/Naif/Documents/Naif Mehanna/SqueezeCNN/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Naif/Documents/Naif Mehanna/SqueezeCNN/cmake-build-debug/CMakeFiles/SqueezeCNN.dir
+C:/Users/Naif/Documents/Naif Mehanna/SqueezeCNN/cmake-build-debug/CMakeFiles/rebuild_cache.dir
