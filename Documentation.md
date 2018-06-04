@@ -1,6 +1,6 @@
 # Documentation for CNN project on embedded system
 
-##CNN :
+## CNN :
 
 A Convolutional Neural Network is a derived form of Artificial Neural Networks
 that is particularly fitted for patterns recognition. Such neural networks are very
