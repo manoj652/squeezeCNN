@@ -1,6 +1,6 @@
 # Documentation for CNN project on embedded system
 
-## CNN :
+##CNN :
 
 A Convolutional Neural Network is a derived form of Artificial Neural Networks
 that is particularly fitted for patterns recognition. Such neural networks are very
@@ -53,6 +53,12 @@ Convolutions are most commonly performed in 3D on colored images rather than 2D 
 
 The convolutions layer are often of different convolution size and are then stacked to form a full feature map.
 
+When dealing with high diçensional inputs, like images, it is totally impractical to connect neurons to all neurons in the previous layer.
+This way of proceeding is called the receptive field of the neuron (analog to the filter size).
+The number of connection on a l+1 neuron, connected to a n neuron is equal to the dimension of the filter.
+
+
+
 Ex: Having a 32x32x3 and then using a filter of size 5x5x3, the difference with the previous description of a 2D conv is that we will sum the result of the 3 depth-wise convolutions, resulting in a feature map of 32x32x1.
 If 5 conv layers would have been used, regardless of the kernel dimension, we would end up with a 32x32x5 feature map.
 
@@ -66,8 +72,10 @@ if we had a linearity at each layer. In order to avoid this, which would make ou
 Stride and padding
 --------------------------
 
-The stride, as mentionned earlier, specify by how much we move the filter at each step. It defines
-the size of the resulting feature map.
+The stride, as mentionned earlier, specify by how much we move the filter at each step. It defines the size of the resulting feature map.
+The use of strides come with a constraint, let´s imagine for example an imput of size 10 (i.e 10x10), using no padding, with a filter size of 3. A stride of 2 would be completely impossible to implement as we would end up with a 4.5 size output.
+![](https://latex.codecogs.com/svg.latex?(W-F&plus;2P)/(S&plus;1)&space;=&space;4.5)
+As the result is a floating number, it is commonly said that the neurons don´t fit symmetricallya ccross the input. The setting of this particular parameter is therefore consiodered invalid.
 The padding, as opposed to the stride, allows us to keep the input size, by adding paddings to surround the input with zeros.
 Padding are always used in CNNs.
 
@@ -91,6 +99,14 @@ Four important parameters are decided on CNNs :
 A small number of filter are usually used in the initial layers and increased as we go deeper in the network.
 * The stride is usually kept at a value of 1 but in order to optimie our network, this parameter is to be discussed.
 * Padding: the parameters is also to be discussed as it is undoubtedly being used.
+
+### Parameters sharing
+
+Parameter sharing is most often used in CNNs in order to limit the number of parameters.
+For instance, the Krizhevsky et al. architecture, winner of the 2012 ImageNet challenge consisted of 55*55*96 = 290.400 neurons in the first convolutional layer only, and each neuron disposed of 11*11*3 = 363 weights and one bias. This end up giving 290400*3363=105705600 parameters on only the first layer which is extremely high and undoable on most ressource limited systems, regarding the available memory and also the CPU core number along with it´s speed.
+Using parameter sharing can reduce significantly the number of parameters by issuing an hypothesis :
+* if one feature is useful to compute at (x,y), then it should also be useful to compute at a different positon (x1,y1).
+In the Krizhevsky et al. architecture, using parameter sharing in order to constraint the use of the same weihgts and bias in neurons of each depth slice of the layer. Say we have 96 slices, and 96 unique sert of weights, we are going to end up with a total of 96*11*11*3 = 34848 unique weights, which we add to the 96 bias. The number of parameters is drastically reduced compared to the previous approach, and we now have chances of computing it on a low ressource CPU.
 
 Fully connected layers
 -------------------------
@@ -147,8 +163,33 @@ Data augmentation enriches the training data by generating new examples via rand
 It is done dynamically at training time.
 Common transformations are rotation, shifting, resizing, adjusting exposure, etc...
 
-Stacking convolutions
-----------------------------------
+Implementing convolution
+-----------------------------------
+Implementing this layer essentially consist of resolving dot products between filters and regions of the input. We wish to optimize to maximum this operation as the more the size of the input is high, the more computation we have to observe.
+Say we have an image size of H*W and a filter size of k*j. The computational complexity of such a convolution would be of :
+![](https://latex.codecogs.com/svg.latex?O(H\cdot&space;W\cdot&space;k\cdot&space;j)).
+
+In order to implement an efficient convolution on ressource limited systems, it is necessary to optimize the computation of the convolution.
+Ways of doing so will be discussed in further sections.
+
+### Stacking convolutions
 
 In state-of-art to this day, stacking convolution layer is very used in order to limit computational use of ressources, as two 3x3 convolutions would produce the same output as a 5x5 convolution.
 Models such as VGG16 or AlexNet take advantage of stacking convolutions layers, which come along with the advantage of using two ReLu layers resulting in an increased non linearity, giving more power to the model.
+
+### Different types of optimized convolutions :
+
+#### Dilated convolution
+A [https://arxiv.org/abs/1511.07122](paper by Fisher Yu and Vladlen Kotlun) has discussed the introduction of one more parameter of the convolution layer, referred as the dilation. A quick summary of the dilation is a filter that have spaces between each cell, a dilation.
+Let´s say we have a filter v of size 3. A dilation of 0 would end up with a convolution result of w[0] * x[0] + w[1] * x[1] + w[2] * x[2], while inserting a dilation of 1 would end up with : w[0] * x[0] + w[1] * x[2] + w[2] * x[4].
+One might wonder the benefits of introducing such a parameter as it increase the number of hyperparameters of the architecture. However, introducing dilation along with filters with no dilation allows us to merge spatial informations accorss the inputs much more efficiently while reducing the number of layers.
+
+### Backpropagation for convolution layers
+
+Backpropagation is defined by a backward pass for a convolution. The difference with the forward pass is that the weights are actually flipped.
+
+
+
+# Links
+[http://cs231n.github.io/convolutional-networks/] (1)
+[http://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/] (2)
