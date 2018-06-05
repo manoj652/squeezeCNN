@@ -3,4 +3,4 @@ project(SqueezeCNN)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(SqueezeCNN main.cpp network/core_math.h network/utils.h network/network.h network/activation.h)
+add_executable(SqueezeCNN main.cpp network/core_math.h network/utils.h network/network.h network/activation.h network/layer.h)
