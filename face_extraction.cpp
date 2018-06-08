@@ -5,7 +5,9 @@ using namespace std;
 using namespace cv;
 using namespace cv::face;
 
+#define PI 3.1415926535
 #define COLOR_LANDMARK Scalar(255,100,100)
+#define RESIZE_SCALE 1 /* Resizing scale */
 
 FaceExtracted::FaceExtracted(Mat frame)  {
   motherFrame = frame;
@@ -32,39 +34,15 @@ void FaceExtracted::detectFaces() {
   }
 }
 
-void FaceExtracted::alignDetectedFace(int index) {
-   float leftEyeX, leftEyeY;
-   float rightEyeX, rightEyeY;
+std::vector<cv::Rect> FaceExtracted::detectSingleFace(cv::Mat aligned_face) {
+  Mat frame_gray;
+  cvtColor(aligned_face,frame_gray, COLOR_BGR2GRAY);
+  equalizeHist(frame_gray,frame_gray);
 
-   /* Landmarks index 36 to 41 for left eye and 42 to 47 for right */
-   Point leftEyeStart(_landmarks[index][36].x,_landmarks[index][36].y);
-   Point leftEyeEnd(_landmarks[index][41].x,_landmarks[index][41].y);
-   Point rightEyeStart(_landmarks[index][42].x,_landmarks[index][42].y);
-   Point leftEyeEnd(_landmarks[index][47].x,_landmarks[index][47].y);
-
-   /* Finding center of left eye */
-   float X,Y,averageX,averageY;
-   int cpt;
-   for(uint8_t i=36; i<=41;i++) {
-     X += _landmarks[index][i].x;
-     Y += _landmarks[index][i].y;
-     cpt++;
-   }
-   averageX = X/cpt;
-   averageY = Y/cpt;
-   Point centerLeft(averageX,averageY);
-   for(uint8_t i=42; i<=47;i++) {
-     X += _landmarks[index][i].x;
-     Y += _landmarks[index][i].y;
-     cpt++;
-   }
-   averageX = X/cpt;
-   averageY = Y/cpt;
-   Point centerRight(averageX,averageY);
-
-   int dY = centerRight.y - centerLeft.y;
-   int dX = centerRight.x - centerRight.y;
-
+  _faceCascade.load(face_cascade_name);
+  std::vector<cv::Rect> detectedFaces;
+  _faceCascade.detectMultiScale(frame_gray,detectedFaces, 1.1,2,0|CASCADE_SCALE_IMAGE, Size(60,60));
+  return detectedFaces;
 }
 
 void FaceExtracted::saveCroppedFaces(string path) {
@@ -73,6 +51,21 @@ void FaceExtracted::saveCroppedFaces(string path) {
     ssfn << path << '/' << i << ".jpg";
     string filename = ssfn.str();
     imwrite(filename,facesROI[i]);
+  }
+}
+
+void FaceExtracted::saveAlignedFace(Mat face,string path,int uuid) {
+  stringstream ssfn;
+  ssfn << path << '/' << uuid << ".jpg";
+  string filename = ssfn.str();
+  imwrite(filename,face);
+}
+
+void FaceExtracted::generateThumbnails(int size=96)  {
+  for(size_t i=0;i<_aligned_cropped_faces.size();i++) {
+    Mat resized;
+    resize(_aligned_cropped_faces[i],resized,Size(size,size));
+    saveAlignedFace(resized,"pictures",i);
   }
 }
 
@@ -94,43 +87,90 @@ int FaceExtracted::generateLandmark() {
   else return -1;
 }
 
+
+
+void FaceExtracted::generateFaceLine() {
+  for(int i=0;i<_landmarks.size();i++)
+    line(motherFrame,_landmarks[i][45],_landmarks[i][36],COLOR_LANDMARK,4);
+}
+
+void FaceExtracted::getRotationMatrix() {
+  _rotation_mat.reserve(facesROI.size());
+  for(int i=0;i<facesROI.size();i++) {
+    double dY = _landmarks[i][42].y - _landmarks[i][36].y;
+    double dX = _landmarks[i][42].x - _landmarks[i][36].x;
+    double eye_angle = atan2(dY,dX)*(180/PI);
+    Point2f center(facesROI[i].cols/2.,facesROI[i].rows/2.);
+    _rotation_mat.push_back(getRotationMatrix2D(center,eye_angle,RESIZE_SCALE));
+    #ifdef EBUG
+    cout << _rotation_mat[i] << endl;
+    #endif
+  }
+
+}
+
+void FaceExtracted::getRotatedFaces() {
+  this->getRotationMatrix();
+  _aligned_faces.reserve(facesROI.size());
+  for(int i=0;i<facesROI.size();i++) {
+    _aligned_faces.push_back(Mat::zeros(facesROI[i].rows,facesROI[i].cols,facesROI[i].type()));
+    warpAffine(facesROI[i],_aligned_faces[i],_rotation_mat[i],Size(facesROI[i].cols,facesROI[i].rows));
+    //std::vector<cv::Rect> faces_aligned = this->detectSingleFace(_aligned_faces[i]);
+    //if(faces_aligned.size() > 0) {
+    //  Mat croppedFace = _aligned_faces[i](faces_aligned[0]);
+    _aligned_cropped_faces.push_back(_aligned_faces[i]);
+    //}
+  }
+
+}
+
+void FaceExtracted::displayResult(cv::Mat matrix) {
+  while(1) {
+    if((waitKey(10) == 27)) break;
+    imshow(window_name,matrix);
+  }
+}
 void FaceExtracted::displayResult(int action) {
   switch(action) {
     case 0:
-    while(1) {
-      if(waitKey(10) == 27) break;
-      for(size_t i=0;i<_faces.size();i++) {
-        Point top(_faces[i].x-PADDING,_faces[i].y-PADDING);
-        Point bottom(_faces[i].x+_faces[i].width+PADDING,_faces[i].y+_faces[i].height+PADDING);
-        rectangle(motherFrame,top,bottom,Scalar(255,255,0),3,8,0);
-        imshow(window_name,motherFrame);
+      while(1) {
+        if(waitKey(10) == 27) break;
+        for(size_t i=0;i<_faces.size();i++) {
+          Point top(_faces[i].x-PADDING,_faces[i].y-PADDING);
+          Point bottom(_faces[i].x+_faces[i].width+PADDING,_faces[i].y+_faces[i].height+PADDING);
+          rectangle(motherFrame,top,bottom,Scalar(255,255,0),3,8,0);
+          imshow(window_name,motherFrame);
+        }
       }
-    }
+      break;
 
     case 2: //Drawing the _landmarks
-    for(int i=0;i<_landmarks.size();i++) {
-      //i loop through the faces, j through the _landmarks
-      if(_landmarks[i].size() == 68) {
-        drawPolyline(i,0, 16);           // Jaw line
-        drawPolyline(i,17, 21);          // Left eyebrow
-        drawPolyline(i,22, 26);          // Right eyebrow
-        drawPolyline(i,27, 30);          // Nose bridge
-        drawPolyline(i,30, 35, true);    // Lower nose
-        drawPolyline(i,36, 41, true);    // Left eye
-        drawPolyline(i,42, 47, true);    // Right Eye
-        drawPolyline(i,48, 59, true);    // Outer lip
-        drawPolyline(i,60, 67, true); // Inner lip
-      } else {
-        for(int j = 0; j < _landmarks[i].size(); j++) {
-           circle(motherFrame,_landmarks[i][j],3, COLOR_LANDMARK, FILLED);
-         }
+      for(int i=0;i<_landmarks.size();i++) {
+        cout << "Displaying landmarks" << endl;
+        //i loop through the faces, j through the _landmarks
+        if(_landmarks[i].size() == 68) {
+          cout << "Landmark size is 68" << endl;
+          drawPolyline(i,0, 16);           // Jaw line
+          drawPolyline(i,17, 21);          // Left eyebrow
+          drawPolyline(i,22, 26);          // Right eyebrow
+          drawPolyline(i,27, 30);          // Nose bridge
+          drawPolyline(i,30, 35, true);    // Lower nose
+          drawPolyline(i,36, 41, true);    // Left eye
+          drawPolyline(i,42, 47, true);    // Right Eye
+          drawPolyline(i,48, 59, true);    // Outer lip
+          drawPolyline(i,60, 67, true); // Inner lip
+        } else {
+          for(int j = 0; j < _landmarks[i].size(); j++) {
+             circle(motherFrame,_landmarks[i][j],3, COLOR_LANDMARK, FILLED);
+           }
+        }
+
+      }
+      while(1) {
+        if(waitKey(10) == 27) break;
+        imshow(window_name,motherFrame);
       }
 
-    }
-    while(1) {
-      if(waitKey(10) == 27) break;
-      imshow(window_name,motherFrame);
-    }
     default:
     return;
   }

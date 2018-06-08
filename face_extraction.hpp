@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 /* Opencv */
 #include <opencv2/opencv.hpp>
 #include <opencv2/face.hpp>
@@ -15,21 +16,33 @@ class FaceExtracted {
 private:
   cv::CascadeClassifier _faceCascade;
   std::string face_cascade_name;
-  
   std::string window_name;
   std::vector<cv::Mat> facesROI;
   cv::Mat motherFrame;
   std::vector<cv::Rect> _faces;
-  std::vector<cv::Rect> _eyes;
+  /* Landmarks */
   std::vector<std::vector<cv::Point2f>> _landmarks;
+  /* Rotation matrix */
+  std::vector<cv::Mat> _rotation_mat;
+  /* ALigned faces */
+  std::vector<cv::Mat> _aligned_faces;
+  std::vector<cv::Mat> _aligned_cropped_faces;
+  std::vector<cv::Mat> _detected_aligned_faces;
+
+  void getRotationMatrix();
   void drawPolyline(const int,const int, const int,bool);
+  void saveAlignedFace(cv::Mat,std::string,int);
 public:
 
   FaceExtracted(cv::Mat);
 
   void detectFaces();
-  void alignDetectedFace();
+  std::vector<cv::Rect> detectSingleFace(cv::Mat);
   void saveCroppedFaces(std::string path);
   int generateLandmark();
+  void generateFaceLine();
+  void generateThumbnails(int);
+  void getRotatedFaces();
   void displayResult(int);
+  void displayResult(cv::Mat);
 };

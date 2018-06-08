@@ -13,6 +13,8 @@ face_extraction.hpp
 /home/naif/Documents/squeezeCNN/face_extraction.hpp
 iostream
 -
+cmath
+-
 opencv2/opencv.hpp
 -
 opencv2/face.hpp
