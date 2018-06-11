@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o"
   "CMakeFiles/squeezecnn.dir/face_extraction.cpp.o"
+  "CMakeFiles/squeezecnn.dir/training_generator.cpp.o"
   "squeezecnn.pdb"
   "squeezecnn"
 )

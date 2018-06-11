@@ -31,6 +31,18 @@ iostream
 -
 face_extraction.hpp
 /home/naif/Documents/squeezeCNN/face_extraction.hpp
+training_generator.hpp
+/home/naif/Documents/squeezeCNN/training_generator.hpp
+
+/home/naif/Documents/squeezeCNN/training_generator.cpp
+training_generator.hpp
+/home/naif/Documents/squeezeCNN/training_generator.hpp
+
+/home/naif/Documents/squeezeCNN/training_generator.hpp
+iostream
+-
+opencv2/opencv.hpp
+-
 
 /usr/local/include/opencv2/calib3d.hpp
 opencv2/core.hpp

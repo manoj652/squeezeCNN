@@ -12,18 +12,21 @@ class TrainingGenerator {
 private:
   cv::Mat _originalFrame;
   cv::Mat _alteredFrame;
+  std::string _outputPath;
   std::vector<cv::Mat> listOfAlteredFrames;
 public:
-  TrainingGenerator(std::string pathToImage);
-  TrainingGenerator(cv::Mat matrix);
+  TrainingGenerator(std::string,std::string);
+  TrainingGenerator(std::string,cv::Mat);
+  ~TrainingGenerator();
 
   void rotateImage(double,int);
-  void flipImage();
-  void generateGaussianNoise();
+  void flipImageHorizontally();
+  void generateGaussianNoise(int);
+  void displayResult();
+  void saveMatrix();
   void saveMatrix(std::string);
-  void saveMatrix(std::string,cv::Mat);
   /* optional */
-  void generateConditionalGan();
+  // void generateConditionalGan();
 };
 
 #endif //TRAINING_GENERATOR_SQUEEZE

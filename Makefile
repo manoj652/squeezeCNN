@@ -177,6 +177,33 @@ mainAlgo.cpp.s:
 	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/mainAlgo.cpp.s
 .PHONY : mainAlgo.cpp.s
 
+training_generator.o: training_generator.cpp.o
+
+.PHONY : training_generator.o
+
+# target to build an object file
+training_generator.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/training_generator.cpp.o
+.PHONY : training_generator.cpp.o
+
+training_generator.i: training_generator.cpp.i
+
+.PHONY : training_generator.i
+
+# target to preprocess a source file
+training_generator.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/training_generator.cpp.i
+.PHONY : training_generator.cpp.i
+
+training_generator.s: training_generator.cpp.s
+
+.PHONY : training_generator.s
+
+# target to generate assembly for a file
+training_generator.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/training_generator.cpp.s
+.PHONY : training_generator.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... mainAlgo.o"
 	@echo "... mainAlgo.i"
 	@echo "... mainAlgo.s"
+	@echo "... training_generator.o"
+	@echo "... training_generator.i"
+	@echo "... training_generator.s"
 .PHONY : help
 
 

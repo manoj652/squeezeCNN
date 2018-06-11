@@ -233,14 +233,25 @@ The nn4 model is implemented using Torch, and output 128 measurement of an align
 
 #### Which classifier to chose ?
 
+##### The random forest tree classifier
+
+Random forest is a supervised learning algorithm, meaning, we must provide a dataset composed of labels and values in order to train the classifier.
+Random forest creates a large number of trees, thus the word Forest in it's name, and use those multiples trees to output a decision by using randomness.
+Below is an image describing accurately the functionning of the Random forest :
+
+![](https://cdn-images-1.medium.com/max/800/0*tG-IWcxL1jg7RkT0.png)
+
+
+
+
 ##### Training the classifier
 
 As our initial dataset of pictures is predicted to be significantly small, *data augmentation* seems necessary in order to perform an efficient training of the classifier.
 An image is previously passed through e first stage of our pipeline, which detect, align and extract a face from an image. It is then fed to the CNN which will output the 128 face measurements, to be stored.
-Following the result of every image used for the training, we use the generated set of label and value in order to train the classifier. 
+Following the result of every image used for the training, we use the generated set of label and value in order to train the classifier.
 
 Data augmentation consists in generating a subsequent subset of images from a smaller set. One mistake to avoid when performing data augmentation is to not fall into useless techniques.
-For instance, it is not very necessary to rotate a face picture by 180 degrees for us, knowing that all our inputs are already aligned pictures. However, flipping, tilting and applying a gaussian blur to the pictures would seem necessary and logical and would allow us to multiply our dataset by a minimum factor of 2. From a small set of 20 pictures, a minimum of 40 sub pictures are to be obtained. 
+For instance, it is not very necessary to rotate a face picture by 180 degrees for us, knowing that all our inputs are already aligned pictures. However, flipping, tilting and applying a gaussian blur to the pictures would seem necessary and logical and would allow us to multiply our dataset by a minimum factor of 2. From a small set of 20 pictures, a minimum of 40 sub pictures are to be obtained.
 
 
 
