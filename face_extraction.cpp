@@ -9,11 +9,24 @@ using namespace cv::face;
 #define COLOR_LANDMARK Scalar(255,100,100)
 #define RESIZE_SCALE 1 /* Resizing scale */
 
+// TODO: generate folder if not found
+
 FaceExtracted::FaceExtracted(Mat frame)  {
   motherFrame = frame;
   face_cascade_name = "/home/naif/Documents/opencv/data/haarcascades/haarcascade_frontalface_alt.xml";
   window_name = "Face extractor";
 
+}
+
+FaceExtracted::FaceExtracted(std::string input, std::string output) {
+  face_cascade_name = "/home/naif/Documents/opencv/data/haarcascades/haarcascade_frontalface_alt.xml";
+  window_name = "Face extractor";
+  _inputPath = input;
+  motherFrame = imread(_inputPath);
+  if(motherFrame.empty()) {
+    cout << "Empty frame" << endl;
+  }
+  _outputPath = output;
 }
 
 void FaceExtracted::detectFaces() {
@@ -55,17 +68,21 @@ void FaceExtracted::saveCroppedFaces(string path) {
 }
 
 void FaceExtracted::saveAlignedFace(Mat face,string path,int uuid) {
-  stringstream ssfn;
-  ssfn << path << '/' << uuid << ".jpg";
-  string filename = ssfn.str();
-  imwrite(filename,face);
+  //Pb multiple faces
+  if( uuid >0) {
+    stringstream ssfn;
+    ssfn << path << uuid << ".jpg";
+    string alterPath = ssfn.str();
+    imwrite(alterPath,face);
+  } else 
+    imwrite(path,face);
 }
 
 void FaceExtracted::generateThumbnails(int size=96)  {
   for(size_t i=0;i<_aligned_cropped_faces.size();i++) {
     Mat resized;
     resize(_aligned_cropped_faces[i],resized,Size(size,size));
-    saveAlignedFace(resized,"pictures",i);
+    saveAlignedFace(resized,_outputPath,i);
   }
 }
 

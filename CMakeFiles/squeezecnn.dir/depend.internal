@@ -135,6 +135,7 @@ CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o
  /home/naif/Documents/squeezeCNN/face_extraction.hpp
  /home/naif/Documents/squeezeCNN/mainAlgo.cpp
  /home/naif/Documents/squeezeCNN/training_generator.hpp
+ /home/naif/Documents/squeezeCNN/utils.hpp
  /usr/local/include/opencv2/calib3d.hpp
  /usr/local/include/opencv2/core.hpp
  /usr/local/include/opencv2/core/affine.hpp
@@ -383,3 +384,6 @@ CMakeFiles/squeezecnn.dir/training_generator.cpp.o
  /usr/local/include/opencv2/videostab/stabilizer.hpp
  /usr/local/include/opencv2/videostab/wobble_suppression.hpp
  /usr/local/include/opencv2/xfeatures2d/cuda.hpp
+CMakeFiles/squeezecnn.dir/utils.cpp.o
+ /home/naif/Documents/squeezeCNN/utils.cpp
+ /home/naif/Documents/squeezeCNN/utils.hpp

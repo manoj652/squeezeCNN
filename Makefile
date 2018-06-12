@@ -204,6 +204,33 @@ training_generator.cpp.s:
 	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/training_generator.cpp.s
 .PHONY : training_generator.cpp.s
 
+utils.o: utils.cpp.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/utils.cpp.o
+.PHONY : utils.cpp.o
+
+utils.i: utils.cpp.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/utils.cpp.i
+.PHONY : utils.cpp.i
+
+utils.s: utils.cpp.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/utils.cpp.s
+.PHONY : utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... training_generator.o"
 	@echo "... training_generator.i"
 	@echo "... training_generator.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 

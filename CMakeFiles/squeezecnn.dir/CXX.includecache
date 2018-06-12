@@ -29,10 +29,14 @@ opencv2/imgproc.hpp
 /home/naif/Documents/squeezeCNN/mainAlgo.cpp
 iostream
 -
+cstdlib
+-
 face_extraction.hpp
 /home/naif/Documents/squeezeCNN/face_extraction.hpp
 training_generator.hpp
 /home/naif/Documents/squeezeCNN/training_generator.hpp
+utils.hpp
+/home/naif/Documents/squeezeCNN/utils.hpp
 
 /home/naif/Documents/squeezeCNN/training_generator.cpp
 training_generator.hpp
@@ -42,6 +46,20 @@ training_generator.hpp
 iostream
 -
 opencv2/opencv.hpp
+-
+
+/home/naif/Documents/squeezeCNN/utils.cpp
+utils.hpp
+/home/naif/Documents/squeezeCNN/utils.hpp
+
+/home/naif/Documents/squeezeCNN/utils.hpp
+iostream
+-
+map
+-
+boost/filesystem.hpp
+-
+boost/algorithm/string.hpp
 -
 
 /usr/local/include/opencv2/calib3d.hpp

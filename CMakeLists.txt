@@ -1,12 +1,28 @@
 cmake_minimum_required(VERSION 2.8)
 project( squeezeCNN )
 find_package(OpenCV REQUIRED )
-FIND_PACKAGE( Boost 1.40 COMPONENTS program_options REQUIRED )
-INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
-add_executable( squeezecnn mainAlgo.cpp face_extraction.cpp training_generator.cpp )
+#add_definitions(-DEBUG)
+add_definitions(-DVERBOSE)
 
-target_link_libraries( squeezecnn ${OpenCV_LIBS} )
-TARGET_LINK_LIBRARIES( squeezecnn LINK_PUBLIC ${Boost_LIBRARIES} )
+set(Boost_USE_STATIC_LIBS OFF) 
+set(Boost_USE_MULTITHREADED ON)  
+set(Boost_USE_STATIC_RUNTIME OFF) 
+find_package(Boost 1.45.0 COMPONENTS filesystem system) 
+find_package(OpenMP)
+if (OPENMP_FOUND)
+    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+endif()
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS}) 
+    add_executable( squeezecnn mainAlgo.cpp face_extraction.cpp training_generator.cpp utils.cpp )
+
+    target_link_libraries( squeezecnn ${OpenCV_LIBS} )
+    TARGET_LINK_LIBRARIES( squeezecnn LINK_PUBLIC ${Boost_LIBRARIES} )
+
+endif()
+
 
 set(CMAKE_BUILD_TYPE Debug)

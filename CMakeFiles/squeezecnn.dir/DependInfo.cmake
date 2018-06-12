@@ -7,8 +7,14 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/naif/Documents/squeezeCNN/face_extraction.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/face_extraction.cpp.o"
   "/home/naif/Documents/squeezeCNN/mainAlgo.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o"
   "/home/naif/Documents/squeezeCNN/training_generator.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/training_generator.cpp.o"
+  "/home/naif/Documents/squeezeCNN/utils.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "VERBOSE"
+  )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

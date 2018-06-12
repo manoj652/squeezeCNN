@@ -1,12 +1,31 @@
-#include <iostream>
-#include <opencv2/opencv.hpp>
+#ifndef SQUEEZE_UTILS_HPP
+#define SQUEEZE_UTILS_HPP
 
+#include <iostream>
+#include <map>
+#include <boost/filesystem.hpp>
+#include <boost/algorithm/string.hpp>
 
 class Utils {
+private:
+  std::vector<std::string> _directories;
+  std::map<std::string,std::vector<std::string>> _fileNames;
+  std::map<std::string,std::vector<std::string>> _outputPath;
 public:
   Utils();
-  float angleBetween(const cv::Point pt1,const cv::Point pt2);
-  void dlibRectangleToCv(dlib::rectangle, cv::Rect*);
-  void cvRectangleToDlib(cv::Rect,dlib::rectangle*);
-  
+  ~Utils();
+  //------ Getters
+  std::map<std::string,std::vector<std::string>> getFileNames();
+  std::vector<std::string> getDirectories();
+  std::map<std::string,std::vector<std::string>> getOutputPath();
+  // -------------
+  bool listSubPath(const boost::filesystem::path &);
+  void displayMap(std::map<std::string,std::vector<std::string>>);
+  void displayVector(std::vector<std::string>);
+  void generateOutputPath(std::map<std::string,std::vector<std::string>>,std::string);
+  void generateOutputPath(std::string,std::string,std::string&);
+  std::vector<std::string> splitText(std::string,char);
+  std::string vectorToString(std::vector<std::string>);
 };
+
+#endif //SQUEEZE-UTILS_HPP

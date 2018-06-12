@@ -1,3 +1,6 @@
+#ifndef FACE_EXTRACTION_SQUEEZE
+#define FACE_EXTRACTION_SQUEEZE
+
 #include <iostream>
 #include <cmath>
 /* Opencv */
@@ -28,6 +31,9 @@ private:
   std::vector<cv::Mat> _aligned_faces;
   std::vector<cv::Mat> _aligned_cropped_faces;
   std::vector<cv::Mat> _detected_aligned_faces;
+  /* Path */
+  std::string _inputPath;
+  std::string _outputPath;
 
   void getRotationMatrix();
   void drawPolyline(const int,const int, const int,bool);
@@ -35,6 +41,7 @@ private:
 public:
 
   FaceExtracted(cv::Mat);
+  FaceExtracted(std::string,std::string);
 
   void detectFaces();
   std::vector<cv::Rect> detectSingleFace(cv::Mat);
@@ -46,3 +53,5 @@ public:
   void displayResult(int);
   void displayResult(cv::Mat);
 };
+
+#endif //FACE_EXTRACTION_SQUEEZE
