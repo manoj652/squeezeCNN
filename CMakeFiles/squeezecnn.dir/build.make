@@ -81,92 +81,92 @@ CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o.provides: CMakeFiles/squeezecnn.dir/mai
 CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o
 
 
-CMakeFiles/squeezecnn.dir/face_extraction.cpp.o: CMakeFiles/squeezecnn.dir/flags.make
-CMakeFiles/squeezecnn.dir/face_extraction.cpp.o: face_extraction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/squeezecnn.dir/face_extraction.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezecnn.dir/face_extraction.cpp.o -c /home/naif/Documents/squeezeCNN/face_extraction.cpp
+CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o: CMakeFiles/squeezecnn.dir/flags.make
+CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o: src/face_extraction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o -c /home/naif/Documents/squeezeCNN/src/face_extraction.cpp
 
-CMakeFiles/squeezecnn.dir/face_extraction.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezecnn.dir/face_extraction.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/naif/Documents/squeezeCNN/face_extraction.cpp > CMakeFiles/squeezecnn.dir/face_extraction.cpp.i
+CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/naif/Documents/squeezeCNN/src/face_extraction.cpp > CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.i
 
-CMakeFiles/squeezecnn.dir/face_extraction.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezecnn.dir/face_extraction.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/naif/Documents/squeezeCNN/face_extraction.cpp -o CMakeFiles/squeezecnn.dir/face_extraction.cpp.s
+CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/naif/Documents/squeezeCNN/src/face_extraction.cpp -o CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.s
 
-CMakeFiles/squeezecnn.dir/face_extraction.cpp.o.requires:
+CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o.requires:
 
-.PHONY : CMakeFiles/squeezecnn.dir/face_extraction.cpp.o.requires
+.PHONY : CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o.requires
 
-CMakeFiles/squeezecnn.dir/face_extraction.cpp.o.provides: CMakeFiles/squeezecnn.dir/face_extraction.cpp.o.requires
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/face_extraction.cpp.o.provides.build
-.PHONY : CMakeFiles/squeezecnn.dir/face_extraction.cpp.o.provides
+CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o.provides: CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o.requires
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o.provides.build
+.PHONY : CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o.provides
 
-CMakeFiles/squeezecnn.dir/face_extraction.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/face_extraction.cpp.o
-
-
-CMakeFiles/squeezecnn.dir/training_generator.cpp.o: CMakeFiles/squeezecnn.dir/flags.make
-CMakeFiles/squeezecnn.dir/training_generator.cpp.o: training_generator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/squeezecnn.dir/training_generator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezecnn.dir/training_generator.cpp.o -c /home/naif/Documents/squeezeCNN/training_generator.cpp
-
-CMakeFiles/squeezecnn.dir/training_generator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezecnn.dir/training_generator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/naif/Documents/squeezeCNN/training_generator.cpp > CMakeFiles/squeezecnn.dir/training_generator.cpp.i
-
-CMakeFiles/squeezecnn.dir/training_generator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezecnn.dir/training_generator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/naif/Documents/squeezeCNN/training_generator.cpp -o CMakeFiles/squeezecnn.dir/training_generator.cpp.s
-
-CMakeFiles/squeezecnn.dir/training_generator.cpp.o.requires:
-
-.PHONY : CMakeFiles/squeezecnn.dir/training_generator.cpp.o.requires
-
-CMakeFiles/squeezecnn.dir/training_generator.cpp.o.provides: CMakeFiles/squeezecnn.dir/training_generator.cpp.o.requires
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/training_generator.cpp.o.provides.build
-.PHONY : CMakeFiles/squeezecnn.dir/training_generator.cpp.o.provides
-
-CMakeFiles/squeezecnn.dir/training_generator.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/training_generator.cpp.o
+CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o
 
 
-CMakeFiles/squeezecnn.dir/utils.cpp.o: CMakeFiles/squeezecnn.dir/flags.make
-CMakeFiles/squeezecnn.dir/utils.cpp.o: utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/squeezecnn.dir/utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezecnn.dir/utils.cpp.o -c /home/naif/Documents/squeezeCNN/utils.cpp
+CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o: CMakeFiles/squeezecnn.dir/flags.make
+CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o: src/training_generator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o -c /home/naif/Documents/squeezeCNN/src/training_generator.cpp
 
-CMakeFiles/squeezecnn.dir/utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezecnn.dir/utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/naif/Documents/squeezeCNN/utils.cpp > CMakeFiles/squeezecnn.dir/utils.cpp.i
+CMakeFiles/squeezecnn.dir/src/training_generator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezecnn.dir/src/training_generator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/naif/Documents/squeezeCNN/src/training_generator.cpp > CMakeFiles/squeezecnn.dir/src/training_generator.cpp.i
 
-CMakeFiles/squeezecnn.dir/utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezecnn.dir/utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/naif/Documents/squeezeCNN/utils.cpp -o CMakeFiles/squeezecnn.dir/utils.cpp.s
+CMakeFiles/squeezecnn.dir/src/training_generator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezecnn.dir/src/training_generator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/naif/Documents/squeezeCNN/src/training_generator.cpp -o CMakeFiles/squeezecnn.dir/src/training_generator.cpp.s
 
-CMakeFiles/squeezecnn.dir/utils.cpp.o.requires:
+CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o.requires:
 
-.PHONY : CMakeFiles/squeezecnn.dir/utils.cpp.o.requires
+.PHONY : CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o.requires
 
-CMakeFiles/squeezecnn.dir/utils.cpp.o.provides: CMakeFiles/squeezecnn.dir/utils.cpp.o.requires
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/utils.cpp.o.provides.build
-.PHONY : CMakeFiles/squeezecnn.dir/utils.cpp.o.provides
+CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o.provides: CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o.provides.build
+.PHONY : CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o.provides
 
-CMakeFiles/squeezecnn.dir/utils.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/utils.cpp.o
+CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o
+
+
+CMakeFiles/squeezecnn.dir/src/utils.cpp.o: CMakeFiles/squeezecnn.dir/flags.make
+CMakeFiles/squeezecnn.dir/src/utils.cpp.o: src/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/squeezecnn.dir/src/utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezecnn.dir/src/utils.cpp.o -c /home/naif/Documents/squeezeCNN/src/utils.cpp
+
+CMakeFiles/squeezecnn.dir/src/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezecnn.dir/src/utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/naif/Documents/squeezeCNN/src/utils.cpp > CMakeFiles/squeezecnn.dir/src/utils.cpp.i
+
+CMakeFiles/squeezecnn.dir/src/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezecnn.dir/src/utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/naif/Documents/squeezeCNN/src/utils.cpp -o CMakeFiles/squeezecnn.dir/src/utils.cpp.s
+
+CMakeFiles/squeezecnn.dir/src/utils.cpp.o.requires:
+
+.PHONY : CMakeFiles/squeezecnn.dir/src/utils.cpp.o.requires
+
+CMakeFiles/squeezecnn.dir/src/utils.cpp.o.provides: CMakeFiles/squeezecnn.dir/src/utils.cpp.o.requires
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/utils.cpp.o.provides.build
+.PHONY : CMakeFiles/squeezecnn.dir/src/utils.cpp.o.provides
+
+CMakeFiles/squeezecnn.dir/src/utils.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/src/utils.cpp.o
 
 
 # Object files for target squeezecnn
 squeezecnn_OBJECTS = \
 "CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o" \
-"CMakeFiles/squeezecnn.dir/face_extraction.cpp.o" \
-"CMakeFiles/squeezecnn.dir/training_generator.cpp.o" \
-"CMakeFiles/squeezecnn.dir/utils.cpp.o"
+"CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o" \
+"CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o" \
+"CMakeFiles/squeezecnn.dir/src/utils.cpp.o"
 
 # External object files for target squeezecnn
 squeezecnn_EXTERNAL_OBJECTS =
 
 squeezecnn: CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o
-squeezecnn: CMakeFiles/squeezecnn.dir/face_extraction.cpp.o
-squeezecnn: CMakeFiles/squeezecnn.dir/training_generator.cpp.o
-squeezecnn: CMakeFiles/squeezecnn.dir/utils.cpp.o
+squeezecnn: CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o
+squeezecnn: CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o
+squeezecnn: CMakeFiles/squeezecnn.dir/src/utils.cpp.o
 squeezecnn: CMakeFiles/squeezecnn.dir/build.make
 squeezecnn: /usr/local/lib/libopencv_stitching.so.4.0.0
 squeezecnn: /usr/local/lib/libopencv_superres.so.4.0.0
@@ -225,9 +225,9 @@ CMakeFiles/squeezecnn.dir/build: squeezecnn
 .PHONY : CMakeFiles/squeezecnn.dir/build
 
 CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o.requires
-CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/face_extraction.cpp.o.requires
-CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/training_generator.cpp.o.requires
-CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/utils.cpp.o.requires
+CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o.requires
+CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o.requires
+CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/utils.cpp.o.requires
 
 .PHONY : CMakeFiles/squeezecnn.dir/requires
 

@@ -123,33 +123,6 @@ squeezecnn/fast:
 	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/build
 .PHONY : squeezecnn/fast
 
-face_extraction.o: face_extraction.cpp.o
-
-.PHONY : face_extraction.o
-
-# target to build an object file
-face_extraction.cpp.o:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/face_extraction.cpp.o
-.PHONY : face_extraction.cpp.o
-
-face_extraction.i: face_extraction.cpp.i
-
-.PHONY : face_extraction.i
-
-# target to preprocess a source file
-face_extraction.cpp.i:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/face_extraction.cpp.i
-.PHONY : face_extraction.cpp.i
-
-face_extraction.s: face_extraction.cpp.s
-
-.PHONY : face_extraction.s
-
-# target to generate assembly for a file
-face_extraction.cpp.s:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/face_extraction.cpp.s
-.PHONY : face_extraction.cpp.s
-
 mainAlgo.o: mainAlgo.cpp.o
 
 .PHONY : mainAlgo.o
@@ -177,59 +150,86 @@ mainAlgo.cpp.s:
 	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/mainAlgo.cpp.s
 .PHONY : mainAlgo.cpp.s
 
-training_generator.o: training_generator.cpp.o
+src/face_extraction.o: src/face_extraction.cpp.o
 
-.PHONY : training_generator.o
-
-# target to build an object file
-training_generator.cpp.o:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/training_generator.cpp.o
-.PHONY : training_generator.cpp.o
-
-training_generator.i: training_generator.cpp.i
-
-.PHONY : training_generator.i
-
-# target to preprocess a source file
-training_generator.cpp.i:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/training_generator.cpp.i
-.PHONY : training_generator.cpp.i
-
-training_generator.s: training_generator.cpp.s
-
-.PHONY : training_generator.s
-
-# target to generate assembly for a file
-training_generator.cpp.s:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/training_generator.cpp.s
-.PHONY : training_generator.cpp.s
-
-utils.o: utils.cpp.o
-
-.PHONY : utils.o
+.PHONY : src/face_extraction.o
 
 # target to build an object file
-utils.cpp.o:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/utils.cpp.o
-.PHONY : utils.cpp.o
+src/face_extraction.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o
+.PHONY : src/face_extraction.cpp.o
 
-utils.i: utils.cpp.i
+src/face_extraction.i: src/face_extraction.cpp.i
 
-.PHONY : utils.i
+.PHONY : src/face_extraction.i
 
 # target to preprocess a source file
-utils.cpp.i:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/utils.cpp.i
-.PHONY : utils.cpp.i
+src/face_extraction.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.i
+.PHONY : src/face_extraction.cpp.i
 
-utils.s: utils.cpp.s
+src/face_extraction.s: src/face_extraction.cpp.s
 
-.PHONY : utils.s
+.PHONY : src/face_extraction.s
 
 # target to generate assembly for a file
-utils.cpp.s:
-	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/utils.cpp.s
-.PHONY : utils.cpp.s
+src/face_extraction.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.s
+.PHONY : src/face_extraction.cpp.s
+
+src/training_generator.o: src/training_generator.cpp.o
+
+.PHONY : src/training_generator.o
+
+# target to build an object file
+src/training_generator.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o
+.PHONY : src/training_generator.cpp.o
+
+src/training_generator.i: src/training_generator.cpp.i
+
+.PHONY : src/training_generator.i
+
+# target to preprocess a source file
+src/training_generator.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/training_generator.cpp.i
+.PHONY : src/training_generator.cpp.i
+
+src/training_generator.s: src/training_generator.cpp.s
+
+.PHONY : src/training_generator.s
+
+# target to generate assembly for a file
+src/training_generator.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/training_generator.cpp.s
+.PHONY : src/training_generator.cpp.s
+
+src/utils.o: src/utils.cpp.o
+
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
 
 # Help Target
 help:
@@ -240,18 +240,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... squeezecnn"
 	@echo "... edit_cache"
-	@echo "... face_extraction.o"
-	@echo "... face_extraction.i"
-	@echo "... face_extraction.s"
 	@echo "... mainAlgo.o"
 	@echo "... mainAlgo.i"
 	@echo "... mainAlgo.s"
-	@echo "... training_generator.o"
-	@echo "... training_generator.i"
-	@echo "... training_generator.s"
-	@echo "... utils.o"
-	@echo "... utils.i"
-	@echo "... utils.s"
+	@echo "... src/face_extraction.o"
+	@echo "... src/face_extraction.i"
+	@echo "... src/face_extraction.s"
+	@echo "... src/training_generator.o"
+	@echo "... src/training_generator.i"
+	@echo "... src/training_generator.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

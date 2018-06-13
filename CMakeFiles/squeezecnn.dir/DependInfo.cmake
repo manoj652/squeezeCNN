@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/naif/Documents/squeezeCNN/face_extraction.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/face_extraction.cpp.o"
   "/home/naif/Documents/squeezeCNN/mainAlgo.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o"
-  "/home/naif/Documents/squeezeCNN/training_generator.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/training_generator.cpp.o"
-  "/home/naif/Documents/squeezeCNN/utils.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/utils.cpp.o"
+  "/home/naif/Documents/squeezeCNN/src/face_extraction.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o"
+  "/home/naif/Documents/squeezeCNN/src/training_generator.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o"
+  "/home/naif/Documents/squeezeCNN/src/utils.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
