@@ -222,7 +222,7 @@ Make heavy use of the inception module, introduced by Google.
 ![](https://raw.githubusercontent.com/cmusatyalab/openface/master/evaluation/lfw.nn4.small1.v1/roc.png)
 Previous image is a benchtest of the nn4 small model.
 
-Openface is a pretty robus API written in LUA and Python.
+Openface is a pretty robust API written in LUA and Python.
 However, what is of interest for us are the pre-trained models that they provide : specially the nn4 small model, which, compared to their original NN2 model, as described in the FaceNet paper, reduces by half the number of hyperparameters, thus the computation time, which is suitable for our application.
 The nn4 model is implemented using Torch, and output 128 measurement of an aligned face as an input.
 
@@ -232,6 +232,11 @@ The nn4 model is implemented using Torch, and output 128 measurement of an align
 
 
 #### Which classifier to chose ?
+
+##### The linear support vector machine
+
+The linear support vector machine is one of the simplest and most efficient machine learning classifier as it had been around since the 60's and have been subject to tremendous ameliorations and optimizations.
+It achieves a very good accuracy on datasets with multiple features.
 
 ##### The random forest tree classifier
 
