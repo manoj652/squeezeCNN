@@ -4,6 +4,7 @@
 
 #include <pthread.h>
 
+#include <opencv2/videoio.hpp>
 
 #include "./src/face_extraction.hpp"
 #include "./src/training_generator.hpp"
@@ -59,6 +60,7 @@ int main(int argc, char **argv) {
     "{video | | Video stream }"
     "{train | false | Train the classifier}"
     "{align | false | Align images}"
+    "{stream | | Webcam}"
     "{align_folder_in |./training-images/ | Folder containing images to align }"
     "{align_folder_out | ./aligned_images/ | Folder to contain aligned images }"
     "{@image  || image to process}");
@@ -171,7 +173,19 @@ int main(int argc, char **argv) {
 
         /* Training the network */
         system("./openface/demos/classifier.py train ./generated-embeddings/");
-      
+
+         Utils dataAugUtil2;
+        dataAugUtil2.listSubPath("./aligned-images/");
+        std::map<string,std::vector<string>> dataAugOutputs = dataAugUtil2.getFileNames();
+
+        for(auto const& x : dataAugOutputs) {
+            string output;
+            
+            for(auto i=x.second.begin();i!=x.second.end();i++) {
+              output = "rm "+x.first + '/' + *i;
+              system(output.c_str());
+            }
+          }
       
     }
 
@@ -192,7 +206,13 @@ int main(int argc, char **argv) {
     }
 
     if(parser.has("video")) {
-      VideoCapture cap(video);
+      VideoCapture cap;
+      if(parser.has("stream")) {
+        cap.open(0);
+        cap.set(CAP_PROP_FRAME_WIDTH,1280);
+        cap.set(CAP_PROP_FRAME_HEIGHT ,720);
+      }
+      else cap.open(video);
       if(!cap.isOpened()) {
         cerr << "Error opening video stream" << endl;
       }
@@ -251,7 +271,11 @@ int main(int argc, char **argv) {
             imshow("Video",trackers[trackers.size()-1].getFrame());
             waitKey(1);
           }
+        } else  {
+          imshow("Video", frame);
+          waitKey(2);
         }
+        
         if(frame.empty()) break;
       }
       system("rm ./outputFrame/*");

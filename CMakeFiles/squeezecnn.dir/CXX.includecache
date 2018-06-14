@@ -73,6 +73,8 @@ cstdlib
 -
 pthread.h
 -
+opencv2/videoio.hpp
+-
 ./src/face_extraction.hpp
 /home/naif/Documents/squeezeCNN/./src/face_extraction.hpp
 ./src/training_generator.hpp
