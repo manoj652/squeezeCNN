@@ -80,9 +80,18 @@ void FaceExtracted::saveAlignedFace(Mat face,string path,int uuid) {
     stringstream ssfn;
     ssfn << path << uuid << ".jpg";
     string alterPath = ssfn.str();
+    _outputsVector.push_back(alterPath);
+    cout << alterPath << endl;
     imwrite(alterPath,face);
-  } else 
+  } else {
     imwrite(path,face);
+    _outputsVector.push_back(path);
+  }
+    
+}
+
+void FaceExtracted::getOutputVector(std::vector<string> &outputVect) {
+  outputVect = _outputsVector;
 }
 
 void FaceExtracted::generateThumbnails(int size=96)  {

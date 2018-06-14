@@ -16,7 +16,7 @@
 class FaceTracking {
 private:
     cv::Mat _frame;
-    cv::Rect _face;
+    cv::Rect2d _face;
     cv::Ptr<cv::Tracker> _tracker;
     bool _isTrackingOk;
 public:

@@ -42,6 +42,7 @@ void FaceTracking::initTracker() {
 void FaceTracking::updateTracker() {
     Rect2d rect = Rect2d(_face);
     _isTrackingOk = _tracker->update(_frame,rect);
+    _face = rect;
     if(_isTrackingOk) {
         rectangle(_frame,rect,Scalar(255,0,0), 2, 1);
     } else {

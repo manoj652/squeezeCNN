@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib> /* For system calls */
+//#include <thread>
 
 #include <pthread.h>
 
@@ -10,7 +11,7 @@
 #include "./src/face_tracking.hpp"
 
 #define NUM_THREADS 4
-#define THRESHOLD 0.7
+#define THRESHOLD 0.8
 
 using namespace cv;
 using namespace std;
@@ -39,9 +40,10 @@ void inferFace(string pathToFrame,string &name) {
              cout << "For path : " << pathToComm << endl;
      #endif
       /*Comparing to a threshold */
-     if(accuracy < THRESHOLD) {
+     if(accuracy <= THRESHOLD) {
          cout << "Result not accurate enough" << endl;
          cout << "******** Detected " << parserResult[0] << " with " << accuracy * 100 << " accuracy." << endl;
+        name = "unknown";
      } else {
        cout << "Detected " << parserResult[0] <<" with " << accuracy * 100 << " % accuracy." << endl;
        name = parserResult[0]; 
@@ -202,7 +204,7 @@ int main(int argc, char **argv) {
         cap >> frame;
         if(frame.empty()) break;
 
-        FaceExtracted faceModule = FaceExtracted(frame,"./outputFrame/smith.jpg");
+        FaceExtracted faceModule = FaceExtracted(frame,"./outputFrame/frame.jpg");
         faceModule.detectFaces();
         std::vector<cv::Rect> facesRect;
         faceModule.getFacesRectangle(facesRect);
@@ -210,34 +212,43 @@ int main(int argc, char **argv) {
           faceModule.generateLandmark();
           faceModule.getRotatedFaces();
           faceModule.generateThumbnails(96);
-          FaceTracking tracker = FaceTracking(frame,facesRect[0]);
-          Utils inferUtil;
-          boost::filesystem::path inferPath("./outputFrame");
-          inferUtil.listSubPath(inferPath);
-
-          std::map<string, std::vector<string>> inferringFolder = inferUtil.getFileNames();
+          std::vector<FaceTracking> trackers;
+      
+          std::vector<string> outputs;
+          faceModule.getOutputVector(outputs);
+          std::vector<string> names;
           string name;
           #pragma omp parallel
           {
             #pragma omp single
-            for(auto const& x : inferringFolder) {
-              for(auto i=x.second.begin();i!=x.second.end();i++) {
-                  inferFace(x.first + '/' + *i,name);
-                }
+            for(int i=0;i<facesRect.size();i++) {
+              cout<< "Begining loop" << endl;
+              if(i==0) trackers.push_back(FaceTracking(frame,facesRect[i]));
+              else trackers.push_back(FaceTracking(trackers[i-1].getFrame(),facesRect[i]));
+              cout << outputs[i] << endl;
+              inferFace(outputs[i],name);
+              names.push_back(name);
+              trackers[i].initTracker();
+              cout << "Ending loop" << endl;
             }
           }
-          tracker.initTracker();
+
           bool isTrackerOk = true;
+          cout << "Tracking..." << endl;
           while(isTrackerOk) {
             cap >> frame;
             if(frame.empty()) break;
-            tracker.setFrame(frame);
-            tracker.updateTracker();
-            tracker.setName(name);
-            cout << "Tracking..." << endl;
-            isTrackerOk = tracker.isTrackingOk();
-            
-            imshow("Video",tracker.getFrame());
+            for(int i=0;i<trackers.size();i++) {
+              if(i==0) trackers[0].setFrame(frame);
+              else trackers[i].setFrame(trackers[i-1].getFrame());
+              trackers[i].updateTracker();
+              if(names.size() >0)
+                trackers[i].setName(names[i]);
+              
+              isTrackerOk = trackers[i].isTrackingOk();
+              if(!isTrackerOk) break;
+            }
+            imshow("Video",trackers[trackers.size()-1].getFrame());
             waitKey(1);
           }
         }
@@ -248,57 +259,6 @@ int main(int argc, char **argv) {
       destroyAllWindows();
     }
 
-      /*while(1) {
-        Mat frame;
-        cap >> frame;
-        if(frame.empty()) break;
-        if(cpt < 100) {
-          cpt++;
-          imshow("Video",frame);
-          waitKey(1);
-          continue;
-        } else cpt=0;
-        
-       
-        
-        FaceExtracted faceModule = FaceExtracted(frame,"./outputFrame/smith.jpg");
-        faceModule.detectFaces();
-        std::vector<cv::Rect> facesRect;
-        cv::Rect face;
-        faceModule.getFacesRectangle(facesRect);
-        faceModule.generateLandmark();
-        faceModule.getRotatedFaces();
-        #ifdef ISPLAY
-          faceModule.displayResult(2);
-        #endif
-        faceModule.generateThumbnails(96);
-        frame = faceModule.getMotherFrame();
-        imshow("Video", frame);
-
-        
-        
-        //TODO: Multithreading, as soon as thread finished, takes another
-        Utils inferUtil;
-        boost::filesystem::path inferPath("./outputFrame");
-        inferUtil.listSubPath(inferPath);
-
-        std::map<string, std::vector<string>> inferringFolder = inferUtil.getFileNames();
-        #pragma omp parallel
-        {
-          #pragma omp single
-          for(auto const& x : inferringFolder) {
-            for(auto i=x.second.begin();i!=x.second.end();i++) {
-                inferFace(x.first + '/' + *i);
-              }
-          }
-        }
-        
-       
-      }
-      system("rm ./outputFrame/*");
-      cap.release();
-      destroyAllWindows();
-     }*/
-
+     
     return 0;
 }

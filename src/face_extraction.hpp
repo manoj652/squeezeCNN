@@ -38,6 +38,7 @@ private:
   /* Path */
   std::string _inputPath;
   std::string _outputPath;
+  std::vector<std::string> _outputsVector;
 
   void getNumberOfAlignedFaces();
   void getRotationMatrix();
@@ -58,6 +59,7 @@ public:
   void getRotatedFaces();
   cv::Mat getMotherFrame();
   void getFacesRectangle(std::vector<cv::Rect> &);
+  void getOutputVector(std::vector<std::string> &);
   bool isTrackingOk();
   void displayResult(int);
   void displayResult(cv::Mat);
