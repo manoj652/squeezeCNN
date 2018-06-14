@@ -1,9 +1,13 @@
 #include <iostream>
 #include <cstdlib> /* For system calls */
 
+#include <pthread.h>
+
+
 #include "./src/face_extraction.hpp"
 #include "./src/training_generator.hpp"
 #include "./src/utils.hpp"
+#include "./src/face_tracking.hpp"
 
 #define NUM_THREADS 4
 #define THRESHOLD 0.7
@@ -11,7 +15,7 @@
 using namespace cv;
 using namespace std;
 
-void inferFace(string pathToFrame) {
+void inferFace(string pathToFrame,string &name) {
    string infercommand = "python classifier.py  infer ./generated-embeddings/classifier.pkl ";
    string pathToComm = pathToFrame;
    infercommand += pathToComm; 
@@ -38,10 +42,13 @@ void inferFace(string pathToFrame) {
      if(accuracy < THRESHOLD) {
          cout << "Result not accurate enough" << endl;
          cout << "******** Detected " << parserResult[0] << " with " << accuracy * 100 << " accuracy." << endl;
-     } else cout << "Detected " << parserResult[0] <<" with " << accuracy * 100 << " % accuracy." << endl;
-      cout << endl;
+     } else {
+       cout << "Detected " << parserResult[0] <<" with " << accuracy * 100 << " % accuracy." << endl;
+       name = parserResult[0]; 
+      } cout << endl;
       cout << endl;
 }
+
 
 int main(int argc, char **argv) {
   CommandLineParser parser(argc, argv,
@@ -68,13 +75,6 @@ int main(int argc, char **argv) {
     String align_folder_in = parser.get<String>("align_folder_in");
     String align_folder_out = parser.get<String>("align_folder_out");
 
-    /*if(parser.has("@image")) {
-        FaceExtracted faceModule = FaceExtracted("./test-images/ferrel.jpg","./test-images/ferrel1.jpg");
-        faceModule.detectFaces();
-        faceModule.generateLandmark();
-        faceModule.getRotatedFaces();
-        faceModule.generateThumbnails(96);
-    }*/
     std::vector<string> outputAlignement;
     if(align) {
       #ifdef VERBOSE
@@ -180,9 +180,10 @@ int main(int argc, char **argv) {
       inferUtil.listSubPath(inferPath);
 
       std::map<string, std::vector<string>> inferringFolder = inferUtil.getFileNames();
+      string name;
       for(auto const& x : inferringFolder) {
         for(auto i=x.second.begin();i!=x.second.end();i++) {
-            inferFace(x.first + '/' + *i);
+            inferFace(x.first + '/' + *i,name);
           }
       }
 
@@ -195,7 +196,59 @@ int main(int argc, char **argv) {
       }
       system("mkdir outputFrame");
       int cpt = 0;
+
       while(1) {
+        Mat frame;
+        cap >> frame;
+        if(frame.empty()) break;
+
+        FaceExtracted faceModule = FaceExtracted(frame,"./outputFrame/smith.jpg");
+        faceModule.detectFaces();
+        std::vector<cv::Rect> facesRect;
+        faceModule.getFacesRectangle(facesRect);
+        if(facesRect.size() > 0) {
+          faceModule.generateLandmark();
+          faceModule.getRotatedFaces();
+          faceModule.generateThumbnails(96);
+          FaceTracking tracker = FaceTracking(frame,facesRect[0]);
+          Utils inferUtil;
+          boost::filesystem::path inferPath("./outputFrame");
+          inferUtil.listSubPath(inferPath);
+
+          std::map<string, std::vector<string>> inferringFolder = inferUtil.getFileNames();
+          string name;
+          #pragma omp parallel
+          {
+            #pragma omp single
+            for(auto const& x : inferringFolder) {
+              for(auto i=x.second.begin();i!=x.second.end();i++) {
+                  inferFace(x.first + '/' + *i,name);
+                }
+            }
+          }
+          tracker.initTracker();
+          bool isTrackerOk = true;
+          while(isTrackerOk) {
+            cap >> frame;
+            if(frame.empty()) break;
+            tracker.setFrame(frame);
+            tracker.updateTracker();
+            tracker.setName(name);
+            cout << "Tracking..." << endl;
+            isTrackerOk = tracker.isTrackingOk();
+            
+            imshow("Video",tracker.getFrame());
+            waitKey(1);
+          }
+        }
+        if(frame.empty()) break;
+      }
+      system("rm ./outputFrame/*");
+      cap.release();
+      destroyAllWindows();
+    }
+
+      /*while(1) {
         Mat frame;
         cap >> frame;
         if(frame.empty()) break;
@@ -208,33 +261,44 @@ int main(int argc, char **argv) {
         
        
         
-        /* Align faces in frame */
-        
         FaceExtracted faceModule = FaceExtracted(frame,"./outputFrame/smith.jpg");
         faceModule.detectFaces();
+        std::vector<cv::Rect> facesRect;
+        cv::Rect face;
+        faceModule.getFacesRectangle(facesRect);
         faceModule.generateLandmark();
         faceModule.getRotatedFaces();
         #ifdef ISPLAY
           faceModule.displayResult(2);
         #endif
         faceModule.generateThumbnails(96);
+        frame = faceModule.getMotherFrame();
+        imshow("Video", frame);
+
         
+        
+        //TODO: Multithreading, as soon as thread finished, takes another
         Utils inferUtil;
         boost::filesystem::path inferPath("./outputFrame");
         inferUtil.listSubPath(inferPath);
 
         std::map<string, std::vector<string>> inferringFolder = inferUtil.getFileNames();
-        for(auto const& x : inferringFolder) {
-          for(auto i=x.second.begin();i!=x.second.end();i++) {
-              inferFace(x.first + '/' + *i);
+        #pragma omp parallel
+        {
+          #pragma omp single
+          for(auto const& x : inferringFolder) {
+            for(auto i=x.second.begin();i!=x.second.end();i++) {
+                inferFace(x.first + '/' + *i);
+              }
           }
         }
+        
        
       }
       system("rm ./outputFrame/*");
       cap.release();
       destroyAllWindows();
-     }
+     }*/
 
     return 0;
 }

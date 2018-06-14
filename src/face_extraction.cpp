@@ -113,6 +113,9 @@ int FaceExtracted::generateLandmark() {
 
 
 
+cv::Mat FaceExtracted::getMotherFrame() {
+  return motherFrame;
+}
 void FaceExtracted::generateFaceLine() {
   for(int i=0;i<_landmarks.size();i++)
     line(motherFrame,_landmarks[i][45],_landmarks[i][36],COLOR_LANDMARK,4);
@@ -146,6 +149,10 @@ void FaceExtracted::getRotatedFaces() {
     //}
   }
 
+}
+
+void FaceExtracted::getFacesRectangle(std::vector<cv::Rect> &rects) {
+  rects = _faces;
 }
 
 void FaceExtracted::displayResult(cv::Mat matrix) {

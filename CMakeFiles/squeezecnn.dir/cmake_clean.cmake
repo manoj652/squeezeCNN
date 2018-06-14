@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o"
   "CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o"
   "CMakeFiles/squeezecnn.dir/src/utils.cpp.o"
+  "CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o"
   "squeezecnn.pdb"
   "squeezecnn"
 )

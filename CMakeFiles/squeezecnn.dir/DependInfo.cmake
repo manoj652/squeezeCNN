@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/naif/Documents/squeezeCNN/mainAlgo.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o"
   "/home/naif/Documents/squeezeCNN/src/face_extraction.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o"
+  "/home/naif/Documents/squeezeCNN/src/face_tracking.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o"
   "/home/naif/Documents/squeezeCNN/src/training_generator.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o"
   "/home/naif/Documents/squeezeCNN/src/utils.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/utils.cpp.o"
   )

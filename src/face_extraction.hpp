@@ -9,6 +9,10 @@
 #include <opencv2/objdetect.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
+#include <opencv2/tracking.hpp>
+#include <opencv2/tracking/tracker.hpp>
+#include <opencv2/tracking/tldDataset.hpp>
+#include <opencv2/core/ocl.hpp>
 
 
 #define PADDING 15 /* 15 Extra pixels to be sure to get the face */
@@ -52,8 +56,18 @@ public:
   void generateFaceLine();
   void generateThumbnails(int);
   void getRotatedFaces();
+  cv::Mat getMotherFrame();
+  void getFacesRectangle(std::vector<cv::Rect> &);
+  bool isTrackingOk();
   void displayResult(int);
   void displayResult(cv::Mat);
 };
 
 #endif //FACE_EXTRACTION_SQUEEZE
+
+/* Face tracing :
+
+Frame : detect faces - if no face detected - skip frame
+if face detected - save the rectangle - init tracker
+while tracker ok, keep tracking
+else return to step 1 */

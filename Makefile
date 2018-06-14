@@ -177,6 +177,33 @@ src/face_extraction.cpp.s:
 	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.s
 .PHONY : src/face_extraction.cpp.s
 
+src/face_tracking.o: src/face_tracking.cpp.o
+
+.PHONY : src/face_tracking.o
+
+# target to build an object file
+src/face_tracking.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o
+.PHONY : src/face_tracking.cpp.o
+
+src/face_tracking.i: src/face_tracking.cpp.i
+
+.PHONY : src/face_tracking.i
+
+# target to preprocess a source file
+src/face_tracking.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.i
+.PHONY : src/face_tracking.cpp.i
+
+src/face_tracking.s: src/face_tracking.cpp.s
+
+.PHONY : src/face_tracking.s
+
+# target to generate assembly for a file
+src/face_tracking.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.s
+.PHONY : src/face_tracking.cpp.s
+
 src/training_generator.o: src/training_generator.cpp.o
 
 .PHONY : src/training_generator.o
@@ -246,6 +273,9 @@ help:
 	@echo "... src/face_extraction.o"
 	@echo "... src/face_extraction.i"
 	@echo "... src/face_extraction.s"
+	@echo "... src/face_tracking.o"
+	@echo "... src/face_tracking.i"
+	@echo "... src/face_tracking.s"
 	@echo "... src/training_generator.o"
 	@echo "... src/training_generator.i"
 	@echo "... src/training_generator.s"

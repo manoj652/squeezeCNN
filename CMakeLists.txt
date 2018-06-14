@@ -18,7 +18,7 @@ if (OPENMP_FOUND)
 endif()
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS}) 
-    add_executable( squeezecnn mainAlgo.cpp ./src/face_extraction.cpp ./src/training_generator.cpp ./src/utils.cpp )
+    add_executable( squeezecnn mainAlgo.cpp ./src/face_extraction.cpp ./src/training_generator.cpp ./src/utils.cpp ./src/face_tracking.cpp)
 
     target_link_libraries( squeezecnn ${OpenCV_LIBS} )
     TARGET_LINK_LIBRARIES( squeezecnn LINK_PUBLIC ${Boost_LIBRARIES} )
