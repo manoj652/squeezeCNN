@@ -71,6 +71,10 @@ iostream
 -
 cstdlib
 -
+thread
+-
+chrono
+-
 pthread.h
 -
 opencv2/videoio.hpp

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib> /* For system calls */
-//#include <thread>
+#include <thread>
+#include <chrono>
 
 #include <pthread.h>
 
@@ -16,6 +17,19 @@
 
 using namespace cv;
 using namespace std;
+
+
+/*typedef struct {
+  string pathToFrame;
+  std::vector<string> &names;
+} InferingParams;
+
+void* inferInParallel(void* params) {
+  InferingParams inferParam = *((InferingParams*) params);
+  string name;
+  inferFace(inferParam.pathToFrame,name);
+  inferParam.names.push_back(name);
+}*/
 
 void inferFace(string pathToFrame,string &name) {
    string infercommand = "python classifier.py  infer ./generated-embeddings/classifier.pkl ";
@@ -38,12 +52,12 @@ void inferFace(string pathToFrame,string &name) {
     float accuracy = strtof(parserResult[1].c_str(),0);            
              
      #ifdef VERBOSE
-             cout << "For path : " << pathToComm << endl;
+        cout << "For path : " << pathToComm << endl;
      #endif
       /*Comparing to a threshold */
      if(accuracy <= THRESHOLD) {
-         cout << "Result not accurate enough" << endl;
-         cout << "******** Detected " << parserResult[0] << " with " << accuracy * 100 << " accuracy." << endl;
+        cout << "Result not accurate enough" << endl;
+        cout << "******** Detected " << parserResult[0] << " with " << accuracy * 100 << " accuracy." << endl;
         name = "unknown";
      } else {
        cout << "Detected " << parserResult[0] <<" with " << accuracy * 100 << " % accuracy." << endl;
@@ -233,28 +247,33 @@ int main(int argc, char **argv) {
           faceModule.getRotatedFaces();
           faceModule.generateThumbnails(96);
           std::vector<FaceTracking> trackers;
-      
           std::vector<string> outputs;
           faceModule.getOutputVector(outputs);
           std::vector<string> names;
           string name;
-          #pragma omp parallel
-          {
-            #pragma omp single
-            for(int i=0;i<facesRect.size();i++) {
-              cout<< "Begining loop" << endl;
-              if(i==0) trackers.push_back(FaceTracking(frame,facesRect[i]));
-              else trackers.push_back(FaceTracking(trackers[i-1].getFrame(),facesRect[i]));
-              cout << outputs[i] << endl;
-              inferFace(outputs[i],name);
-              names.push_back(name);
-              trackers[i].initTracker();
-              cout << "Ending loop" << endl;
-            }
+          for(int i=0;i<facesRect.size();i++) {
+            if(i==0) trackers.push_back(FaceTracking(frame,facesRect[i]));
+            else trackers.push_back(FaceTracking(trackers[i-1].getFrame(),facesRect[i]));
+            
+            /* Multithread this */
+            
+            trackers[i].initTracker();
           }
+          std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+          #pragma omp parallel for// num_threads(NUM_THREADS)
+          for(int i=0;i<facesRect.size();i++) {
+            inferFace(outputs[i],name);
+            names.push_back(name);
+          }
+          std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+          auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count();
+          cout << "Faces recognition took " << (float)(duration/1000.f) << " seconds"<<endl;;
+          
 
           bool isTrackerOk = true;
+          #ifdef VERBOSE
           cout << "Tracking..." << endl;
+          #endif
           while(isTrackerOk) {
             cap >> frame;
             if(frame.empty()) break;
