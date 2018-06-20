@@ -204,6 +204,33 @@ src/face_tracking.cpp.s:
 	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.s
 .PHONY : src/face_tracking.cpp.s
 
+src/network_utils.o: src/network_utils.cpp.o
+
+.PHONY : src/network_utils.o
+
+# target to build an object file
+src/network_utils.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o
+.PHONY : src/network_utils.cpp.o
+
+src/network_utils.i: src/network_utils.cpp.i
+
+.PHONY : src/network_utils.i
+
+# target to preprocess a source file
+src/network_utils.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/network_utils.cpp.i
+.PHONY : src/network_utils.cpp.i
+
+src/network_utils.s: src/network_utils.cpp.s
+
+.PHONY : src/network_utils.s
+
+# target to generate assembly for a file
+src/network_utils.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/network_utils.cpp.s
+.PHONY : src/network_utils.cpp.s
+
 src/training_generator.o: src/training_generator.cpp.o
 
 .PHONY : src/training_generator.o
@@ -276,6 +303,9 @@ help:
 	@echo "... src/face_tracking.o"
 	@echo "... src/face_tracking.i"
 	@echo "... src/face_tracking.s"
+	@echo "... src/network_utils.o"
+	@echo "... src/network_utils.i"
+	@echo "... src/network_utils.s"
 	@echo "... src/training_generator.o"
 	@echo "... src/training_generator.i"
 	@echo "... src/training_generator.s"

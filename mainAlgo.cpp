@@ -11,25 +11,19 @@
 #include "./src/training_generator.hpp"
 #include "./src/utils.hpp"
 #include "./src/face_tracking.hpp"
+#include "./src/network_utils.hpp"
 
 #define NUM_THREADS 4
 #define THRESHOLD 0.8
+#define URL "http://localhost:8080"
 
 using namespace cv;
 using namespace std;
 
-
-/*typedef struct {
-  string pathToFrame;
-  std::vector<string> &names;
-} InferingParams;
-
-void* inferInParallel(void* params) {
-  InferingParams inferParam = *((InferingParams*) params);
-  string name;
-  inferFace(inferParam.pathToFrame,name);
-  inferParam.names.push_back(name);
-}*/
+Device device = {"A8:B6:EA:DF:6E:44","Raspberry"};
+NetworkUtils network = NetworkUtils(device);
+string token;
+int repsSystem;
 
 void inferFace(string pathToFrame,string &name) {
    string infercommand = "python classifier.py  infer ./generated-embeddings/classifier.pkl ";
@@ -66,6 +60,30 @@ void inferFace(string pathToFrame,string &name) {
       cout << endl;
 }
 
+void getAuthToken() {
+  
+  
+  int rep = network.getAuthToken(URL,token);
+  if(rep != 200) {
+    cout << "[getAuthToken] : error while generating token" << endl;
+    perror("Token problem");
+    exit(EXIT_FAILURE);
+  } 
+} 
+
+bool authorizeFace(string name) {
+  Utils parser;
+  std::vector<string> parserResult = parser.splitText(name,'-');
+  Employee employee = {parserResult[1],parserResult[0],false};
+  
+  int reps = network.checkEmployee(URL,employee);
+  if(reps == 200) {
+    cout << name << " authorized." << endl;
+    return true;
+  }
+  cout << name << " not authorized" << endl;
+  return false;
+}
 
 int main(int argc, char **argv) {
   CommandLineParser parser(argc, argv,
@@ -92,6 +110,9 @@ int main(int argc, char **argv) {
     bool align = parser.get<bool>("align");
     String align_folder_in = parser.get<String>("align_folder_in");
     String align_folder_out = parser.get<String>("align_folder_out");
+
+    
+    getAuthToken();
 
     std::vector<string> outputAlignement;
     if(align) {
@@ -180,13 +201,13 @@ int main(int argc, char **argv) {
         cout << "Generating embeddings in folder generated-embeddings..." << endl;
         #endif
         /* Generating embeddings */
-        system("./openface/batch-represent/main.lua -outDir ./generated-embeddings/ -data ./aligned-images/");
+        repsSystem = system("./openface/batch-represent/main.lua -outDir ./generated-embeddings/ -data ./aligned-images/");
         #ifdef VERBOSE
         cout << "Command done. Check previous log if errors occured" << endl;
         #endif
 
         /* Training the network */
-        system("./openface/demos/classifier.py train ./generated-embeddings/");
+        repsSystem = system("./openface/demos/classifier.py train ./generated-embeddings/");
 
          Utils dataAugUtil2;
         dataAugUtil2.listSubPath("./aligned-images/");
@@ -197,7 +218,7 @@ int main(int argc, char **argv) {
             
             for(auto i=x.second.begin();i!=x.second.end();i++) {
               output = "rm "+x.first + '/' + *i;
-              system(output.c_str());
+              repsSystem = system(output.c_str());
             }
           }
       
@@ -220,6 +241,7 @@ int main(int argc, char **argv) {
     }
 
     if(parser.has("video")) {
+      
       VideoCapture cap;
       if(parser.has("stream")) {
         cap.open(0);
@@ -230,7 +252,7 @@ int main(int argc, char **argv) {
       if(!cap.isOpened()) {
         cerr << "Error opening video stream" << endl;
       }
-      system("mkdir outputFrame");
+      repsSystem = system("mkdir outputFrame");
       int cpt = 0;
 
       while(1) {
@@ -269,6 +291,10 @@ int main(int argc, char **argv) {
           auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count();
           cout << "Faces recognition took " << (float)(duration/1000.f) << " seconds"<<endl;;
           
+          for(int i=0;i<names.size();i++) {
+            if(names[i] != "unknown")
+              authorizeFace(names[i]);
+          }
 
           bool isTrackerOk = true;
           #ifdef VERBOSE
@@ -297,7 +323,7 @@ int main(int argc, char **argv) {
         
         if(frame.empty()) break;
       }
-      system("rm ./outputFrame/*");
+      repsSystem = system("rm ./outputFrame/*");
       cap.release();
       destroyAllWindows();
     }
