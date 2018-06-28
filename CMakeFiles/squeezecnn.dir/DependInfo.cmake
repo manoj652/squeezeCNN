@@ -5,11 +5,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/naif/Documents/squeezeCNN/mainAlgo.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o"
+  "/home/naif/Documents/squeezeCNN/src/base64.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/base64.cpp.o"
   "/home/naif/Documents/squeezeCNN/src/face_extraction.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o"
   "/home/naif/Documents/squeezeCNN/src/face_tracking.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o"
   "/home/naif/Documents/squeezeCNN/src/network_utils.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o"
   "/home/naif/Documents/squeezeCNN/src/training_generator.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o"
   "/home/naif/Documents/squeezeCNN/src/utils.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/utils.cpp.o"
+  "/home/naif/Documents/squeezeCNN/src/video_consumer.cpp" "/home/naif/Documents/squeezeCNN/CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

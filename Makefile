@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -149,6 +149,33 @@ mainAlgo.s: mainAlgo.cpp.s
 mainAlgo.cpp.s:
 	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/mainAlgo.cpp.s
 .PHONY : mainAlgo.cpp.s
+
+src/base64.o: src/base64.cpp.o
+
+.PHONY : src/base64.o
+
+# target to build an object file
+src/base64.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/base64.cpp.o
+.PHONY : src/base64.cpp.o
+
+src/base64.i: src/base64.cpp.i
+
+.PHONY : src/base64.i
+
+# target to preprocess a source file
+src/base64.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/base64.cpp.i
+.PHONY : src/base64.cpp.i
+
+src/base64.s: src/base64.cpp.s
+
+.PHONY : src/base64.s
+
+# target to generate assembly for a file
+src/base64.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/base64.cpp.s
+.PHONY : src/base64.cpp.s
 
 src/face_extraction.o: src/face_extraction.cpp.o
 
@@ -285,6 +312,33 @@ src/utils.cpp.s:
 	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
 
+src/video_consumer.o: src/video_consumer.cpp.o
+
+.PHONY : src/video_consumer.o
+
+# target to build an object file
+src/video_consumer.cpp.o:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o
+.PHONY : src/video_consumer.cpp.o
+
+src/video_consumer.i: src/video_consumer.cpp.i
+
+.PHONY : src/video_consumer.i
+
+# target to preprocess a source file
+src/video_consumer.cpp.i:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.i
+.PHONY : src/video_consumer.cpp.i
+
+src/video_consumer.s: src/video_consumer.cpp.s
+
+.PHONY : src/video_consumer.s
+
+# target to generate assembly for a file
+src/video_consumer.cpp.s:
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.s
+.PHONY : src/video_consumer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -297,6 +351,9 @@ help:
 	@echo "... mainAlgo.o"
 	@echo "... mainAlgo.i"
 	@echo "... mainAlgo.s"
+	@echo "... src/base64.o"
+	@echo "... src/base64.i"
+	@echo "... src/base64.s"
 	@echo "... src/face_extraction.o"
 	@echo "... src/face_extraction.i"
 	@echo "... src/face_extraction.s"
@@ -312,6 +369,9 @@ help:
 	@echo "... src/utils.o"
 	@echo "... src/utils.i"
 	@echo "... src/utils.s"
+	@echo "... src/video_consumer.o"
+	@echo "... src/video_consumer.i"
+	@echo "... src/video_consumer.s"
 .PHONY : help
 
 

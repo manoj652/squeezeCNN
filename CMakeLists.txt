@@ -10,6 +10,7 @@ set(CURL_LIBRARY "-lcurl")
 find_package(CURL REQUIRED)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lrestclient-cpp")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lrdkafka -lz -lpthread -lrt")
 
 set(Boost_USE_STATIC_LIBS OFF) 
 set(Boost_USE_MULTITHREADED ON)  
@@ -18,7 +19,7 @@ find_package(Boost 1.45.0 COMPONENTS filesystem system)
 
 find_package(OpenMP)
 
-add_executable( squeezecnn mainAlgo.cpp ./src/face_extraction.cpp ./src/training_generator.cpp ./src/utils.cpp ./src/face_tracking.cpp ./src/network_utils.cpp)
+add_executable( squeezecnn mainAlgo.cpp ./src/face_extraction.cpp ./src/training_generator.cpp ./src/utils.cpp ./src/face_tracking.cpp ./src/network_utils.cpp ./src/video_consumer.cpp ./src/base64.cpp)
 
 if (OPENMP_FOUND)
     set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
@@ -35,7 +36,10 @@ if(CURL_FOUND)
     target_link_libraries( squeezecnn ${CURL_LIBRARIES})
 endif()
 
-target_link_libraries( squeezecnn restclient-cpp)
+target_link_libraries( squeezecnn rdkafka )
+target_link_libraries( squeezecnn cppkafka )
+target_link_libraries( squeezecnn restclient-cpp )
+
 set(CMAKE_BUILD_TYPE Debug)
 
 

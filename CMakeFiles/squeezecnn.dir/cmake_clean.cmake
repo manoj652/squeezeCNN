@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/squeezecnn.dir/src/utils.cpp.o"
   "CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o"
   "CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o"
+  "CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o"
+  "CMakeFiles/squeezecnn.dir/src/base64.cpp.o"
   "squeezecnn.pdb"
   "squeezecnn"
 )

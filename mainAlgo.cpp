@@ -12,6 +12,7 @@
 #include "./src/utils.hpp"
 #include "./src/face_tracking.hpp"
 #include "./src/network_utils.hpp"
+#include "./src/video_consumer.hpp"
 
 #define NUM_THREADS 4
 #define THRESHOLD 0.8
@@ -90,9 +91,10 @@ int main(int argc, char **argv) {
     "{help h||}"
     "{infer | false | Infer the input}"
     "{video | | Video stream }"
+    "{stream | | Live remote video stream}"
     "{train | false | Train the classifier}"
     "{align | false | Align images}"
-    "{stream | | Webcam}"
+    "{webcam | | Webcam}"
     "{align_folder_in |./training-images/ | Folder containing images to align }"
     "{align_folder_out | ./aligned_images/ | Folder to contain aligned images }"
     "{@image  || image to process}");
@@ -112,7 +114,7 @@ int main(int argc, char **argv) {
     String align_folder_out = parser.get<String>("align_folder_out");
 
     
-    getAuthToken();
+    
 
     std::vector<string> outputAlignement;
     if(align) {
@@ -241,9 +243,10 @@ int main(int argc, char **argv) {
     }
 
     if(parser.has("video")) {
-      
+      getAuthToken();
+
       VideoCapture cap;
-      if(parser.has("stream")) {
+      if(parser.has("webcam")) {
         cap.open(0);
         cap.set(CAP_PROP_FRAME_WIDTH,1280);
         cap.set(CAP_PROP_FRAME_HEIGHT ,720);
@@ -328,6 +331,21 @@ int main(int argc, char **argv) {
       destroyAllWindows();
     }
 
+    if(parser.has("stream")) {
+      VideoConsumer consumer("localhost:9092","video-stream-topic","testId");
+      consumer.setConsumer();
+
+      while(1) {
+        Mat frame;
+        frame = consumer.getVideoFrame();
+        /*if(!frame.empty()) {
+          imshow("Test",frame);
+          waitKey(10);
+        }*/
+      }
+    }
+    
+    
      
     return 0;
 }

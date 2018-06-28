@@ -201,6 +201,54 @@ CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o.provides: CMakeFiles/squeezecn
 CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o
 
 
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: CMakeFiles/squeezecnn.dir/flags.make
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/video_consumer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o -c /home/naif/Documents/squeezeCNN/src/video_consumer.cpp
+
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/naif/Documents/squeezeCNN/src/video_consumer.cpp > CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.i
+
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/naif/Documents/squeezeCNN/src/video_consumer.cpp -o CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.s
+
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o.requires:
+
+.PHONY : CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o.requires
+
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o.provides: CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o.provides.build
+.PHONY : CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o.provides
+
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o
+
+
+CMakeFiles/squeezecnn.dir/src/base64.cpp.o: CMakeFiles/squeezecnn.dir/flags.make
+CMakeFiles/squeezecnn.dir/src/base64.cpp.o: src/base64.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/squeezecnn.dir/src/base64.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezecnn.dir/src/base64.cpp.o -c /home/naif/Documents/squeezeCNN/src/base64.cpp
+
+CMakeFiles/squeezecnn.dir/src/base64.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezecnn.dir/src/base64.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/naif/Documents/squeezeCNN/src/base64.cpp > CMakeFiles/squeezecnn.dir/src/base64.cpp.i
+
+CMakeFiles/squeezecnn.dir/src/base64.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezecnn.dir/src/base64.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/naif/Documents/squeezeCNN/src/base64.cpp -o CMakeFiles/squeezecnn.dir/src/base64.cpp.s
+
+CMakeFiles/squeezecnn.dir/src/base64.cpp.o.requires:
+
+.PHONY : CMakeFiles/squeezecnn.dir/src/base64.cpp.o.requires
+
+CMakeFiles/squeezecnn.dir/src/base64.cpp.o.provides: CMakeFiles/squeezecnn.dir/src/base64.cpp.o.requires
+	$(MAKE) -f CMakeFiles/squeezecnn.dir/build.make CMakeFiles/squeezecnn.dir/src/base64.cpp.o.provides.build
+.PHONY : CMakeFiles/squeezecnn.dir/src/base64.cpp.o.provides
+
+CMakeFiles/squeezecnn.dir/src/base64.cpp.o.provides.build: CMakeFiles/squeezecnn.dir/src/base64.cpp.o
+
+
 # Object files for target squeezecnn
 squeezecnn_OBJECTS = \
 "CMakeFiles/squeezecnn.dir/mainAlgo.cpp.o" \
@@ -208,7 +256,9 @@ squeezecnn_OBJECTS = \
 "CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o" \
 "CMakeFiles/squeezecnn.dir/src/utils.cpp.o" \
 "CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o" \
-"CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o"
+"CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o" \
+"CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o" \
+"CMakeFiles/squeezecnn.dir/src/base64.cpp.o"
 
 # External object files for target squeezecnn
 squeezecnn_EXTERNAL_OBJECTS =
@@ -219,6 +269,8 @@ squeezecnn: CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o
 squeezecnn: CMakeFiles/squeezecnn.dir/src/utils.cpp.o
 squeezecnn: CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o
 squeezecnn: CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o
+squeezecnn: CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o
+squeezecnn: CMakeFiles/squeezecnn.dir/src/base64.cpp.o
 squeezecnn: CMakeFiles/squeezecnn.dir/build.make
 squeezecnn: /usr/local/lib/libopencv_stitching.so.4.0.0
 squeezecnn: /usr/local/lib/libopencv_superres.so.4.0.0
@@ -268,7 +320,7 @@ squeezecnn: /usr/local/lib/libopencv_objdetect.so.4.0.0
 squeezecnn: /usr/local/lib/libopencv_imgproc.so.4.0.0
 squeezecnn: /usr/local/lib/libopencv_core.so.4.0.0
 squeezecnn: CMakeFiles/squeezecnn.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable squeezecnn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/naif/Documents/squeezeCNN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable squeezecnn"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/squeezecnn.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -282,6 +334,8 @@ CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/training_gener
 CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/utils.cpp.o.requires
 CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o.requires
 CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o.requires
+CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o.requires
+CMakeFiles/squeezecnn.dir/requires: CMakeFiles/squeezecnn.dir/src/base64.cpp.o.requires
 
 .PHONY : CMakeFiles/squeezecnn.dir/requires
 
