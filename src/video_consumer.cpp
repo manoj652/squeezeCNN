@@ -103,7 +103,7 @@ void VideoConsumer::getVideoFrame() {
         this->pollConsumer();
         if(mat2.empty() || mat2.rows == 0 || mat2.cols == 0) return;
         cv::imshow("test",mat2);
-        cv::waitKey(5);
+        cv::waitKey(1);
         cv::imwrite("test1.jpg",mat);
         
 
@@ -155,7 +155,7 @@ void VideoConsumer::getVideoFrame() {
                 if(!isTrackerOk) break;
                 }
                 cv::imshow("Video",trackers[trackers.size()-1].getFrame());
-                cv::waitKey(2);
+                cv::waitKey(1);
             }
         } 
         //--------

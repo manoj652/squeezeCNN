@@ -37,6 +37,9 @@ FaceExtracted::FaceExtracted(cv::Mat frame, std::string output) {
 }
 
 void FaceExtracted::detectFaces() {
+  #ifdef EBUG
+  cout << "[FaceExtracted]::DetectFaces" << endl;
+  #endif
   Mat frame_gray;
   cvtColor(motherFrame,frame_gray, COLOR_BGR2GRAY);
   equalizeHist(frame_gray,frame_gray);
@@ -131,6 +134,9 @@ void FaceExtracted::generateFaceLine() {
 }
 
 void FaceExtracted::getRotationMatrix() {
+  #ifdef EBUG
+  cout << "[FaceExtracted]::getRotationMatrix" << endl;
+  #endif
   _rotation_mat.reserve(facesROI.size());
   for(int i=0;i<facesROI.size();i++) {
     double dY = _landmarks[i][42].y - _landmarks[i][36].y;
@@ -146,6 +152,9 @@ void FaceExtracted::getRotationMatrix() {
 }
 
 void FaceExtracted::getRotatedFaces() {
+  #ifdef EBUG
+  cout << "[FaceExtracted]::getRotatedFaces" << endl;
+  #endif
   this->getRotationMatrix();
   _aligned_faces.reserve(facesROI.size());
   for(int i=0;i<facesROI.size();i++) {

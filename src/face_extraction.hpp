@@ -15,7 +15,7 @@
 #include <opencv2/core/ocl.hpp>
 
 
-#define PADDING 15 /* 15 Extra pixels to be sure to get the face */
+#define PADDING 0 /* 15 Extra pixels to be sure to get the face */
 
 
 
