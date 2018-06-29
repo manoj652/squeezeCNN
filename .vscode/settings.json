@@ -52,7 +52,14 @@
         "typeindex": "cpp",
         "*.ipp": "cpp",
         "hash_map": "cpp",
-        "hash_set": "cpp"
+        "hash_set": "cpp",
+        "csignal": "cpp",
+        "strstream": "cpp",
+        "codecvt": "cpp",
+        "unordered_set": "cpp",
+        "future": "cpp",
+        "numeric": "cpp",
+        "algorithm": "cpp"
     },
     "python.linting.pylintEnabled": false
 }

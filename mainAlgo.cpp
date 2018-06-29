@@ -332,16 +332,13 @@ int main(int argc, char **argv) {
     }
 
     if(parser.has("stream")) {
-      VideoConsumer consumer("localhost:9092","video-stream-topic","testId");
+      VideoConsumer consumer("localhost:9092","video-stream-topic","testId2");
       consumer.setConsumer();
-
+      
       while(1) {
-        Mat frame;
-        frame = consumer.getVideoFrame();
-        /*if(!frame.empty()) {
-          imshow("Test",frame);
-          waitKey(10);
-        }*/
+        Mat *frame = NULL;
+        consumer.getVideoFrame();
+        
       }
     }
     

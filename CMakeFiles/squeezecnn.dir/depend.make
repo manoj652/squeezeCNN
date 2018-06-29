@@ -741,6 +741,9 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: lib/rapidjson/include/rapidj
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: lib/rapidjson/include/rapidjson/stringbuffer.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: lib/rapidjson/include/rapidjson/writer.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/base64.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/face_extraction.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/face_tracking.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/utils.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/video_consumer.cpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/video_consumer.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/asm/socket.h
@@ -805,12 +808,14 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/cppkafka/
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/cppkafka/utils/poll_strategy_base.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/cppkafka/utils/roundrobin_poll_strategy.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/librdkafka/rdkafka.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv/cxcore.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/calib3d.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/affine.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/base.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/bufferpool.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/check.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/core_c.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/cuda.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/cuda.inl.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/cuda_types.hpp
@@ -825,6 +830,7 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/c
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/mat.inl.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/matx.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/neon_utils.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/ocl.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/operations.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/optim.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/ovx.hpp
@@ -833,6 +839,7 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/c
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/saturate.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/traits.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/types.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/types_c.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/utility.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/version.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/core/vsx_utils.hpp
@@ -841,6 +848,15 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/d
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/dnn/dnn.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/dnn/dnn.inl.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/dnn/layer.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face/face_alignment.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face/facemark.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face/facemarkAAM.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face/facemarkLBF.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face/facemark_train.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face/facerec.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face/mace.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/face/predict_collector.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/features2d.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/flann.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/flann/all_indices.h
@@ -877,6 +893,7 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/f
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/highgui.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/imgcodecs.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/imgproc.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/imgproc/types_c.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/ml.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/ml/ml.inl.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/objdetect.hpp
@@ -903,6 +920,12 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/s
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/stitching/warpers.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/superres.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/superres/optical_flow.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/tracking.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/tracking/feature.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/tracking/onlineBoosting.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/tracking/onlineMIL.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/tracking/tldDataset.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/tracking/tracker.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/video.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/video/background_segm.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/video/tracking.hpp
