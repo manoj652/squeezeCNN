@@ -5,15 +5,24 @@ using namespace rapidjson;
 
 int cpt = 0;
 
-NetworkUtils::NetworkUtils(Device device) {
+NetworkUtils::NetworkUtils(string url,Device device) {
     RestClient::init();
+    _url = url;
     _device = device;
     
 }
 
-int NetworkUtils::getAuthToken(string url,std::string& token) {
+NetworkUtils::NetworkUtils() {
+
+}
+NetworkUtils::NetworkUtils(string url,string token) {
+    _url = url;
+    _token = token;
+}
+
+int NetworkUtils::getAuthToken(std::string& token) {
     string jsonDevice = "{ \"data\":{\"deviceName\":\""+_device.deviceName+"\",\"deviceMac\":\""+_device.deviceMac+"\"} }";
-    _conn = new RestClient::Connection(url);
+    _conn = new RestClient::Connection(_url);
     RestClient::HeaderFields headers;
     headers["Content-Type"] = "application/json";
     _conn->SetHeaders(headers);
@@ -37,23 +46,27 @@ int NetworkUtils::getAuthToken(string url,std::string& token) {
     return r.code;
 }
 
-int NetworkUtils::checkEmployee(string url, Employee& employee) {
+int NetworkUtils::checkEmployee(Employee& employee) {
     string jsonEmployee = "{ \"data\":{\"firstName\":\""+employee.firstName+"\",\"lastName\":\""+employee.lastName+"\"} }";
-    _conn = new RestClient::Connection(url);
+    _conn = new RestClient::Connection(_url);
     RestClient::HeaderFields headers;
     headers["Content-Type"] = "application/json";
     headers["Authorization"] = "Bearer "+_token;
     _conn->SetHeaders(headers);
 
-    RestClient::Response r = _conn->post("/recognition/face",jsonEmployee);
+    RestClient::Response r = _conn->post("/employees/face",jsonEmployee);
     if(r.code == 200) employee.auth = true;
     if(r.code == 401 && cpt < 5) {
         string token;
-        getAuthToken(url,token);
-        checkEmployee(url,employee);
+        getAuthToken(token);
+        checkEmployee(employee);
         cpt++;   
     }
     cpt = 0;
     return r.code;
+}
+
+string NetworkUtils::getUrl() {
+    return _url;
 }
 

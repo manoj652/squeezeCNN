@@ -25,12 +25,16 @@ class NetworkUtils {
     private:
     RestClient::Connection* _conn;
     std::string _token;
+    std::string _url;
     Device _device;
     public:
-    NetworkUtils(Device);
+    NetworkUtils();
+    NetworkUtils(std::string,Device);
+    NetworkUtils(std::string,std::string);
 
-    int getAuthToken(std::string,std::string&);
-    int checkEmployee(std::string,Employee&);
+    int getAuthToken(std::string&);
+    int checkEmployee(Employee&);
+    std::string getUrl();
 };
 
 #endif

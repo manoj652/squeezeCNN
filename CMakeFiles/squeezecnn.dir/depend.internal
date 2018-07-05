@@ -744,10 +744,13 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o
  /home/naif/Documents/squeezeCNN/src/base64.h
  /home/naif/Documents/squeezeCNN/src/face_extraction.hpp
  /home/naif/Documents/squeezeCNN/src/face_tracking.hpp
+ /home/naif/Documents/squeezeCNN/src/network_utils.hpp
  /home/naif/Documents/squeezeCNN/src/utils.hpp
  /home/naif/Documents/squeezeCNN/src/video_consumer.cpp
  /home/naif/Documents/squeezeCNN/src/video_consumer.hpp
  /usr/include/x86_64-linux-gnu/asm/socket.h
+ /usr/include/x86_64-linux-gnu/bits/poll.h
+ /usr/include/x86_64-linux-gnu/bits/poll2.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
  /usr/include/x86_64-linux-gnu/bits/select.h
@@ -772,9 +775,17 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h
  /usr/include/x86_64-linux-gnu/bits/typesizes.h
  /usr/include/x86_64-linux-gnu/bits/wordsize.h
+ /usr/include/x86_64-linux-gnu/curl/curl.h
+ /usr/include/x86_64-linux-gnu/curl/curlver.h
+ /usr/include/x86_64-linux-gnu/curl/easy.h
+ /usr/include/x86_64-linux-gnu/curl/multi.h
+ /usr/include/x86_64-linux-gnu/curl/system.h
+ /usr/include/x86_64-linux-gnu/curl/typecheck-gcc.h
+ /usr/include/x86_64-linux-gnu/sys/poll.h
  /usr/include/x86_64-linux-gnu/sys/select.h
  /usr/include/x86_64-linux-gnu/sys/socket.h
  /usr/include/x86_64-linux-gnu/sys/sysmacros.h
+ /usr/include/x86_64-linux-gnu/sys/time.h
  /usr/include/x86_64-linux-gnu/sys/types.h
  /usr/local/include/cppkafka/buffer.h
  /usr/local/include/cppkafka/clonable_ptr.h
@@ -947,3 +958,6 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o
  /usr/local/include/opencv2/videostab/stabilizer.hpp
  /usr/local/include/opencv2/videostab/wobble_suppression.hpp
  /usr/local/include/opencv2/xfeatures2d/cuda.hpp
+ /usr/local/include/restclient-cpp/connection.h
+ /usr/local/include/restclient-cpp/restclient.h
+ /usr/local/include/restclient-cpp/version.h

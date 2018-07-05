@@ -4,6 +4,7 @@ using namespace std;
 using namespace cppkafka;
 using namespace rapidjson;
 
+
 void inferFaceTest(string pathToFrame,string &name) {
    string infercommand = "python classifier.py  infer ./generated-embeddings/classifier.pkl ";
    string pathToComm = pathToFrame;
@@ -52,9 +53,21 @@ VideoConsumer::VideoConsumer(std::string brokers, std::string topic, std::string
 }
 cv::Mat mat;
 cv::Mat mat2;
+
+
 void VideoConsumer::setConsumer() {
     _consumer = (new Consumer(_configuration));
     _consumer->subscribe({_topic});
+
+
+}
+
+void VideoConsumer::setConsumer(string token) {
+   _consumer = (new Consumer(_configuration));
+   _consumer->subscribe({_topic});
+    _token  = token;
+    _network = *new NetworkUtils("localhost:8080",_token);
+    shouldUseNetwork = true;
 }
 
 void VideoConsumer::pollConsumer() {
@@ -82,6 +95,11 @@ void VideoConsumer::pollConsumer() {
         int rows = document["rows"].GetInt();
         int cols = document["cols"].GetInt();
         int type = document["type"].GetInt();
+        int64 timestamp = document["timestamp"].GetInt64();
+        std::time_t result = std::time(nullptr);
+        if(timestamp/1000 < result-3) {
+            cout << "HUGE LATENCY -- WARNING > 3 seconds" << endl;
+        }
         string data = document["data"].GetString();
         std::vector<BYTE> decodedBytes = base64_decode(data);
         
@@ -100,17 +118,21 @@ void VideoConsumer::pollConsumer() {
 
 
 void VideoConsumer::getVideoFrame() {
+    
         this->pollConsumer();
         if(mat2.empty() || mat2.rows == 0 || mat2.cols == 0) return;
         cv::imshow("test",mat2);
         cv::waitKey(1);
-        cv::imwrite("test1.jpg",mat);
         
 
         //--------
          
         FaceExtracted faceModule = FaceExtracted(mat2,"./outputFrame/frame.jpg");
+        std::chrono::high_resolution_clock::time_point t1Face = std::chrono::high_resolution_clock::now();
         faceModule.detectFaces();
+        std::chrono::high_resolution_clock::time_point t2Face = std::chrono::high_resolution_clock::now();
+        auto durationFace = std::chrono::duration_cast<std::chrono::milliseconds>(t2Face-t1Face).count();
+        cout << "Faces detection took " << (float)(durationFace/1000.f) << " seconds"<<endl;
         std::vector<cv::Rect> facesRect;
         faceModule.getFacesRectangle(facesRect);
         if(facesRect.size() > 0) {
@@ -137,7 +159,22 @@ void VideoConsumer::getVideoFrame() {
             std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count();
             cout << "Faces recognition took " << (float)(duration/1000.f) << " seconds"<<endl;
-             bool isTrackerOk = true;
+            
+            if(shouldUseNetwork){
+                    for(int i=0;i<names.size();i++) {
+                    if(names[i] != "unknown"){
+                        Utils parser;
+                        std::vector<string> parserResult = parser.splitText(name,'-');
+                        Employee employee = {parserResult[1],parserResult[0],false};
+                        int code = _network.checkEmployee(employee);
+                        if(code == 200) {
+                            cout << names[i] << " authorized."<<endl;
+                        }
+                    }
+                        
+                }
+            }
+            bool isTrackerOk = true;
             #ifdef VERBOSE
             cout << "Tracking..." << endl;
             #endif

@@ -22,7 +22,7 @@ using namespace cv;
 using namespace std;
 
 Device device = {"A8:B6:EA:DF:6E:44","Raspberry"};
-NetworkUtils network = NetworkUtils(device);
+NetworkUtils network = NetworkUtils(URL,device);
 string token;
 int repsSystem;
 
@@ -62,9 +62,8 @@ void inferFace(string pathToFrame,string &name) {
 }
 
 void getAuthToken() {
-  
-  
-  int rep = network.getAuthToken(URL,token);
+ 
+  int rep = network.getAuthToken(token);
   if(rep != 200) {
     cout << "[getAuthToken] : error while generating token" << endl;
     perror("Token problem");
@@ -77,7 +76,7 @@ bool authorizeFace(string name) {
   std::vector<string> parserResult = parser.splitText(name,'-');
   Employee employee = {parserResult[1],parserResult[0],false};
   
-  int reps = network.checkEmployee(URL,employee);
+  int reps = network.checkEmployee(employee);
   if(reps == 200) {
     cout << name << " authorized." << endl;
     return true;
@@ -332,8 +331,9 @@ int main(int argc, char **argv) {
     }
 
     if(parser.has("stream")) {
+      getAuthToken();
       VideoConsumer consumer("localhost:9092","video-stream-topic","testId2");
-      consumer.setConsumer();
+      consumer.setConsumer(token);
       
       while(1) {
         Mat *frame = NULL;

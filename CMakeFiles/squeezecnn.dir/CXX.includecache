@@ -315,6 +315,8 @@ iostream
 -
 chrono
 -
+ctime
+-
 cppkafka/cppkafka.h
 -
 opencv2/opencv.hpp
@@ -325,6 +327,10 @@ utils.hpp
 /home/naif/Documents/squeezeCNN/./src/utils.hpp
 face_tracking.hpp
 /home/naif/Documents/squeezeCNN/./src/face_tracking.hpp
+network_utils.hpp
+/home/naif/Documents/squeezeCNN/./src/network_utils.hpp
+utils.hpp
+/home/naif/Documents/squeezeCNN/./src/utils.hpp
 base64.h
 /home/naif/Documents/squeezeCNN/./src/base64.h
 ../lib/rapidjson/include/rapidjson/document.h
@@ -699,6 +705,8 @@ iostream
 -
 chrono
 -
+ctime
+-
 cppkafka/cppkafka.h
 -
 opencv2/opencv.hpp
@@ -709,6 +717,10 @@ utils.hpp
 /home/naif/Documents/squeezeCNN/src/utils.hpp
 face_tracking.hpp
 /home/naif/Documents/squeezeCNN/src/face_tracking.hpp
+network_utils.hpp
+/home/naif/Documents/squeezeCNN/src/network_utils.hpp
+utils.hpp
+/home/naif/Documents/squeezeCNN/src/utils.hpp
 base64.h
 /home/naif/Documents/squeezeCNN/src/base64.h
 ../lib/rapidjson/include/rapidjson/document.h

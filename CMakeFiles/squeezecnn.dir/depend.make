@@ -743,10 +743,13 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: lib/rapidjson/include/rapidj
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/base64.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/face_extraction.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/face_tracking.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/network_utils.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/utils.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/video_consumer.cpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: src/video_consumer.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/asm/socket.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/bits/poll.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/bits/poll2.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/bits/select.h
@@ -771,9 +774,17 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gn
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/bits/types/timer_t.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/bits/typesizes.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/bits/wordsize.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/curl/curl.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/curl/curlver.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/curl/easy.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/curl/multi.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/curl/system.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/curl/typecheck-gcc.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/sys/poll.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/sys/select.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/sys/socket.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/sys/sysmacros.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/sys/time.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/include/x86_64-linux-gnu/sys/types.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/cppkafka/buffer.h
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/cppkafka/clonable_ptr.h
@@ -946,4 +957,7 @@ CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/v
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/videostab/stabilizer.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/videostab/wobble_suppression.hpp
 CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/opencv2/xfeatures2d/cuda.hpp
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/restclient-cpp/connection.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/restclient-cpp/restclient.h
+CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o: /usr/local/include/restclient-cpp/version.h
 
