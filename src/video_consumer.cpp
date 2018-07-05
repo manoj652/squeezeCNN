@@ -97,8 +97,21 @@ void VideoConsumer::pollConsumer() {
         int type = document["type"].GetInt();
         int64 timestamp = document["timestamp"].GetInt64();
         std::time_t result = std::time(nullptr);
-        if(timestamp/1000 < result-3) {
+        if(timestamp/1000 < result-1) {
             cout << "HUGE LATENCY -- WARNING > 3 seconds" << endl;
+            while(timestamp/1000 < result) {
+                msg = _consumer->poll();
+                jsonPayload = "";
+                for(auto i=msg.get_payload().begin(); i != msg.get_payload().end();i++) {
+                    jsonPayload += *i;
+                 }
+                document.Parse(jsonPayload.c_str());
+                rows = document["rows"].GetInt();
+                cols = document["cols"].GetInt();
+                type = document["type"].GetInt();
+                timestamp = document["timestamp"].GetInt64();
+                cout << timestamp/1000 - result <<endl;
+            }
         }
         string data = document["data"].GetString();
         std::vector<BYTE> decodedBytes = base64_decode(data);
