@@ -21,6 +21,8 @@
 class VideoConsumer {
 
     private:
+        std::string _cameraId = "";
+
         std::string _topic;
         std::string _brokers;
         std::string _groupid;
@@ -28,11 +30,16 @@ class VideoConsumer {
         NetworkUtils _network;
         bool shouldUseNetwork = false;
         cppkafka::Consumer *_consumer = NULL;
+        cppkafka::Producer *_producer = NULL;
         cppkafka::Configuration _configuration;
+        cppkafka::Configuration _configProd;
+        cppkafka::MessageBuilder *_messageBuilder;
     public:
         VideoConsumer(std::string brokers, std::string topic, std::string groupid);
+        ~VideoConsumer();
         void setConsumer();
         void setConsumer(std::string);
+        void setProducer();
         void pollConsumer();
         void getVideoFrame();
 

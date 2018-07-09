@@ -39,11 +39,14 @@ int NetworkUtils::getAuthToken(std::string& token) {
     
     const Value& data = document["data"];
 
-        
-    token = data["token"].GetString();
-    _token = token;
-    RestClient::disable();
-    return r.code;
+    if(data.HasMember("token")) {
+        token = data["token"].GetString();
+        _token = token;
+    
+        return r.code;
+    } 
+    return 403;
+    
 }
 
 int NetworkUtils::checkEmployee(Employee& employee) {
@@ -56,13 +59,14 @@ int NetworkUtils::checkEmployee(Employee& employee) {
 
     RestClient::Response r = _conn->post("/employees/face",jsonEmployee);
     if(r.code == 200) employee.auth = true;
-    if(r.code == 401 && cpt < 5) {
-        string token;
-        getAuthToken(token);
-        checkEmployee(employee);
-        cpt++;   
+    if(r.code == 403 && cpt < 5) {
+        // string token;
+        // getAuthToken(token);
+        // checkEmployee(employee);
+        // cpt++;   
     }
     cpt = 0;
+    cout << r.code << endl;
     return r.code;
 }
 

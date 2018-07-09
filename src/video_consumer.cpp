@@ -4,6 +4,7 @@ using namespace std;
 using namespace cppkafka;
 using namespace rapidjson;
 
+#define UNKNOWN_PATH_FOLDER "./unknown_faces/"
 
 void inferFaceTest(string pathToFrame,string &name) {
    string infercommand = "python classifier.py  infer ./generated-embeddings/classifier.pkl ";
@@ -33,6 +34,9 @@ void inferFaceTest(string pathToFrame,string &name) {
         cout << "Result not accurate enough" << endl;
         cout << "******** Detected " << parserResult[0] << " with " << accuracy * 100 << " accuracy." << endl;
         name = "unknown";
+        cv::Mat unknownFace = cv::imread(pathToFrame);
+        std::time_t timestamp = std::time(nullptr);
+        cv::imwrite(UNKNOWN_PATH_FOLDER+std::to_string(timestamp)+".jpg",unknownFace);
      } else {
        cout << "Detected " << parserResult[0] <<" with " << accuracy * 100 << " % accuracy." << endl;
        name = parserResult[0]; 
@@ -45,9 +49,9 @@ VideoConsumer::VideoConsumer(std::string brokers, std::string topic, std::string
     _topic = topic;
     _groupid = groupid;
     _configuration = {
-        {"metadata.broker.list", brokers},
+        {"metadata.broker.list", _brokers},
         {"max.partition.fetch.bytes","2097152"},
-        {"group.id",groupid}
+        {"group.id",_groupid}
     };
     
 }
@@ -60,6 +64,15 @@ void VideoConsumer::setConsumer() {
     _consumer->subscribe({_topic});
 
 
+}
+
+void VideoConsumer::setProducer() {
+    string topic = "video-result-topic";
+    _configProd = {
+        {"metadata.broker.list",_brokers}  
+    };
+    _producer = new Producer(_configProd);
+    _messageBuilder = new MessageBuilder(topic);
 }
 
 void VideoConsumer::setConsumer(string token) {
@@ -95,10 +108,11 @@ void VideoConsumer::pollConsumer() {
         int rows = document["rows"].GetInt();
         int cols = document["cols"].GetInt();
         int type = document["type"].GetInt();
+        _cameraId = document["cameraId"].GetString();
         int64 timestamp = document["timestamp"].GetInt64();
         std::time_t result = std::time(nullptr);
         if(timestamp/1000 < result-1) {
-            cout << "HUGE LATENCY -- WARNING > 3 seconds" << endl;
+            cout << "HUGE LATENCY -- WARNING > 1 seconds" << endl;
             while(timestamp/1000 < result) {
                 msg = _consumer->poll();
                 jsonPayload = "";
@@ -110,7 +124,6 @@ void VideoConsumer::pollConsumer() {
                 cols = document["cols"].GetInt();
                 type = document["type"].GetInt();
                 timestamp = document["timestamp"].GetInt64();
-                cout << timestamp/1000 - result <<endl;
             }
         }
         string data = document["data"].GetString();
@@ -129,6 +142,9 @@ void VideoConsumer::pollConsumer() {
     }
 }
 
+VideoConsumer::~VideoConsumer() {
+    RestClient::disable();
+}
 
 void VideoConsumer::getVideoFrame() {
     
@@ -173,7 +189,7 @@ void VideoConsumer::getVideoFrame() {
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count();
             cout << "Faces recognition took " << (float)(duration/1000.f) << " seconds"<<endl;
             
-            if(shouldUseNetwork){
+            if(shouldUseNetwork) {
                     for(int i=0;i<names.size();i++) {
                     if(names[i] != "unknown"){
                         Utils parser;
@@ -181,8 +197,22 @@ void VideoConsumer::getVideoFrame() {
                         Employee employee = {parserResult[1],parserResult[0],false};
                         int code = _network.checkEmployee(employee);
                         if(code == 200) {
+                            string msg = names[i]+" recognized by camera : "+_cameraId;
+                            std::string timestamp = std::to_string(std::time(nullptr));
+
+                            _messageBuilder->key(timestamp);
+                            _messageBuilder->payload(msg);
+
+                            _producer->produce(*_messageBuilder);
                             cout << names[i] << " authorized."<<endl;
-                        }
+                        } 
+                    } else {
+                            string msg = "Unauthorized person detected by camera : "+_cameraId;
+                            std::string timestamp = std::to_string(std::time(nullptr));
+
+                            _messageBuilder->key(timestamp);
+                            _messageBuilder->payload(msg);
+                            _producer->produce(*_messageBuilder);
                     }
                         
                 }

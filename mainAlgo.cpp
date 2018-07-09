@@ -334,11 +334,10 @@ int main(int argc, char **argv) {
       getAuthToken();
       VideoConsumer consumer("localhost:9092","video-stream-topic","testId2");
       consumer.setConsumer(token);
-      
+      consumer.setProducer();
       while(1) {
         Mat *frame = NULL;
-        consumer.getVideoFrame();
-        
+        consumer.getVideoFrame(); 
       }
     }
     
