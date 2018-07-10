@@ -23,6 +23,7 @@ using namespace std;
 
 Device device = {"A8:B6:EA:DF:6E:44","Raspberry"};
 NetworkUtils network = NetworkUtils(URL,device);
+std::vector<string> _listCameras;
 string token;
 int repsSystem;
 
@@ -71,6 +72,17 @@ void getAuthToken() {
   } 
 } 
 
+void* streamLogic(void* cameraId) {
+    string cameraid = *(string *)cameraId;
+    VideoConsumer consumer("localhost:9092","video-stream-topic","testId2",cameraid);
+    consumer.setConsumer(token);
+    consumer.setProducer();
+    while(1) {
+      Mat *frame = NULL;
+      consumer.getVideoFrame(); 
+    }
+}
+
 bool authorizeFace(string name) {
   Utils parser;
   std::vector<string> parserResult = parser.splitText(name,'-');
@@ -96,22 +108,25 @@ int main(int argc, char **argv) {
     "{webcam | | Webcam}"
     "{align_folder_in |./training-images/ | Folder containing images to align }"
     "{align_folder_out | ./aligned_images/ | Folder to contain aligned images }"
-    "{@image  || image to process}");
+    "{image  || image to process}");
 
     parser.about("SqueezeCNN v0.0.1");
     if(parser.has("help")) {
       parser.printMessage();
     }
 
+    _listCameras.push_back("testCam");
+    _listCameras.push_back("cam2");
 
-    string image = parser.get<string>(0);
+    string image = parser.get<string>("image");
     string video = parser.get<string>("video");
     bool infer = parser.get<bool>("infer");
     bool train = parser.get<bool>("train");
     bool align = parser.get<bool>("align");
-    String align_folder_in = parser.get<String>("align_folder_in");
-    String align_folder_out = parser.get<String>("align_folder_out");
+    string align_folder_in = parser.get<String>("align_folder_in");
+    string align_folder_out = parser.get<String>("align_folder_out");
 
+    
     
     
 
@@ -332,13 +347,14 @@ int main(int argc, char **argv) {
 
     if(parser.has("stream")) {
       getAuthToken();
-      VideoConsumer consumer("localhost:9092","video-stream-topic","testId2");
-      consumer.setConsumer(token);
-      consumer.setProducer();
-      while(1) {
-        Mat *frame = NULL;
-        consumer.getVideoFrame(); 
+      pthread_t tids[_listCameras.size()];
+      for(int i=0;i<_listCameras.size();i++) {
+        pthread_create(&tids[i],NULL, streamLogic,(void*)&_listCameras[i]);
       }
+      for(int i=0;i<_listCameras.size();i++) {
+        pthread_join(tids[i],NULL);  
+      }
+      
     }
     
     

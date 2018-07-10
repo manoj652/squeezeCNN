@@ -6,7 +6,7 @@ using namespace rapidjson;
 
 #define UNKNOWN_PATH_FOLDER "./unknown_faces/"
 
-void inferFaceTest(string pathToFrame,string &name) {
+void inferFaceStream(string pathToFrame,string &name) {
    string infercommand = "python classifier.py  infer ./generated-embeddings/classifier.pkl ";
    string pathToComm = pathToFrame;
    infercommand += pathToComm; 
@@ -55,6 +55,18 @@ VideoConsumer::VideoConsumer(std::string brokers, std::string topic, std::string
     };
     
 }
+VideoConsumer::VideoConsumer(std::string brokers, std::string topic, std::string groupid, std::string cameraid) {
+    _brokers = brokers;
+    _topic = topic;
+    _groupid = groupid;
+    _cameraId = cameraid;
+    _configuration = {
+        {"metadata.broker.list", _brokers},
+        {"max.partition.fetch.bytes","2097152"},
+        {"group.id",_groupid}
+    };
+    
+}
 cv::Mat mat;
 cv::Mat mat2;
 
@@ -86,7 +98,7 @@ void VideoConsumer::setConsumer(string token) {
 void VideoConsumer::pollConsumer() {
     Message msg = _consumer->poll();
     if(!msg) {
-        cerr << "No message received" << endl;
+        cerr << "No message received for camera " <<_cameraId << endl;
         return;
     }
     if(msg.get_error()) {
@@ -108,7 +120,11 @@ void VideoConsumer::pollConsumer() {
         int rows = document["rows"].GetInt();
         int cols = document["cols"].GetInt();
         int type = document["type"].GetInt();
-        _cameraId = document["cameraId"].GetString();
+        string cameraId = document["cameraId"].GetString();
+        if(_cameraId == cameraId && cameraId != "") {
+            return;
+        }
+        
         int64 timestamp = document["timestamp"].GetInt64();
         std::time_t result = std::time(nullptr);
         if(timestamp/1000 < result-1) {
@@ -154,7 +170,7 @@ void VideoConsumer::getVideoFrame() {
         cv::waitKey(1);
         
 
-        //--------
+        //TODO : Multithread ?
          
         FaceExtracted faceModule = FaceExtracted(mat2,"./outputFrame/frame.jpg");
         std::chrono::high_resolution_clock::time_point t1Face = std::chrono::high_resolution_clock::now();
@@ -182,7 +198,7 @@ void VideoConsumer::getVideoFrame() {
             std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
             #pragma omp parallel for// num_threads(NUM_THREADS)
             for(int i=0;i<facesRect.size();i++) {
-                inferFaceTest(outputs[i],name);
+                inferFaceStream(outputs[i],name);
                 names.push_back(name);
             }
             std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();

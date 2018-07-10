@@ -40,10 +40,8 @@ int NetworkUtils::getAuthToken(std::string& token) {
     const Value& data = document["data"];
 
     if(data.HasMember("token")) {
-        token = data["token"].GetString();
-        _token = token;
-    
-        return r.code;
+        _token = data["token"].GetString();
+       return r.code;
     } 
     return 403;
     

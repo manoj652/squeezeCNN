@@ -36,6 +36,7 @@ class VideoConsumer {
         cppkafka::MessageBuilder *_messageBuilder;
     public:
         VideoConsumer(std::string brokers, std::string topic, std::string groupid);
+        VideoConsumer(std::string brokers, std::string topic, std::string groupid, std::string cameraid);
         ~VideoConsumer();
         void setConsumer();
         void setConsumer(std::string);
