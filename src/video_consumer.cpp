@@ -166,7 +166,7 @@ void VideoConsumer::getVideoFrame() {
     
         this->pollConsumer();
         if(mat2.empty() || mat2.rows == 0 || mat2.cols == 0) return;
-        cv::imshow("test",mat2);
+        cv::imshow("Recognition",mat2);
         cv::waitKey(1);
         
 
@@ -181,7 +181,6 @@ void VideoConsumer::getVideoFrame() {
         std::vector<cv::Rect> facesRect;
         faceModule.getFacesRectangle(facesRect);
         if(facesRect.size() > 0) {
-            cv::imwrite("test.jpg",mat2);
             faceModule.generateLandmark();
             faceModule.getRotatedFaces();
             faceModule.generateThumbnails(96);

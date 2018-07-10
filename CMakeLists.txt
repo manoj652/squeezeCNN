@@ -19,7 +19,7 @@ find_package(Boost 1.45.0 COMPONENTS filesystem system)
 
 find_package(OpenMP)
 
-add_executable( squeezecnn mainAlgo.cpp ./src/face_extraction.cpp ./src/training_generator.cpp ./src/utils.cpp ./src/face_tracking.cpp ./src/network_utils.cpp ./src/video_consumer.cpp ./src/base64.cpp)
+add_executable( squeezecnn ./src/mainAlgo.cpp ./src/face_extraction.cpp ./src/training_generator.cpp ./src/utils.cpp ./src/face_tracking.cpp ./src/network_utils.cpp ./src/video_consumer.cpp ./src/base64.cpp)
 
 if (OPENMP_FOUND)
     set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
