@@ -23,7 +23,7 @@ The linear SVM classifier gave consequently better results than the Random Fores
 
 The program is action as a kafka consumer when using the --stream attribute. It follows the following architecture :
 
-![Flow](./FlowSqueezeFace.jpg)
+![Flow](./doc/FlowSqueezeFace.jpg)
 
 The program is dispatched among multiple threads, based on how many cameras are configured. The threads are programmed based on the cameraId provided in the _listCameras global variable, and the cameraId provided in the JSON by the producer.
 
