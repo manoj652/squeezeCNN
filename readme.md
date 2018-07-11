@@ -259,7 +259,13 @@ Data augmentation consists in generating a subsequent subset of images from a sm
 For instance, it is not very necessary to rotate a face picture by 180 degrees for us, knowing that all our inputs are already aligned pictures. However, flipping, tilting and applying a gaussian blur to the pictures would seem necessary and logical and would allow us to multiply our dataset by a minimum factor of 2. From a small set of 20 pictures, a minimum of 40 sub pictures are to be obtained.
 
 
+# Code dependencies
 
+* OpenCV > 3.1 (New tracking library required)
+* cppkafka -librdkafka (gets isntalled to usr/local/lib, move to /usr/lib to get it to work)
+* boost 
+* restclient - curl
+* rapidjson (headers only)
 
 
 # Links

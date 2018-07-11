@@ -158,9 +158,7 @@ void VideoConsumer::pollConsumer() {
     }
 }
 
-VideoConsumer::~VideoConsumer() {
-    RestClient::disable();
-}
+
 
 void VideoConsumer::getVideoFrame() {
     
@@ -256,4 +254,8 @@ void VideoConsumer::getVideoFrame() {
         //--------
 
 
+}
+
+VideoConsumer::~VideoConsumer() {
+    RestClient::disable();
 }

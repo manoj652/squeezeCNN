@@ -126,10 +126,6 @@ int main(int argc, char **argv) {
     string align_folder_in = parser.get<String>("align_folder_in");
     string align_folder_out = parser.get<String>("align_folder_out");
 
-    
-    
-    
-
     std::vector<string> outputAlignement;
     if(align) {
       #ifdef VERBOSE
@@ -241,7 +237,7 @@ int main(int argc, char **argv) {
     }
 
     /* Step 2: case 1: Infering the person */
-    if(infer) {
+    /*if(infer) {
       Utils inferUtil;
       boost::filesystem::path inferPath(align_folder_out);
       inferUtil.listSubPath(inferPath);
@@ -254,7 +250,7 @@ int main(int argc, char **argv) {
           }
       }
 
-    }
+    }*/
 
     if(parser.has("video")) {
       getAuthToken();
@@ -293,8 +289,6 @@ int main(int argc, char **argv) {
           for(int i=0;i<facesRect.size();i++) {
             if(i==0) trackers.push_back(FaceTracking(frame,facesRect[i]));
             else trackers.push_back(FaceTracking(trackers[i-1].getFrame(),facesRect[i]));
-            
-            /* Multithread this */
             
             trackers[i].initTracker();
           }
