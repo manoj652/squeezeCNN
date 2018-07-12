@@ -118,10 +118,8 @@ int main (int argc, char **argv)
                               "{train | false | Train the classifier}"
                               "{align | false | Align images}"
                               "{webcam | | Webcam}"
-                              "{align_folder_in |./training-images/ | Folder "
-                              "containing images to align }"
-                              "{align_folder_out | ./aligned_images/ | Folder to "
-                              "contain aligned images }"
+                              "{align_folder_in |./training-images/ | Folder containing images to align }"
+                              "{align_folder_out | ./aligned-images | Folder to contain aligned images }"
                               "{image  || image to process}");
 
     parser.about ("SqueezeCNN v0.0.1");
@@ -193,6 +191,7 @@ int main (int argc, char **argv)
             }
         }
     }
+
     /* Step 2 : case 1: Training the classifier */
     if (train)
     {
@@ -242,20 +241,8 @@ int main (int argc, char **argv)
         /* Training the network */
         repsSystem = system ("./openface/demos/classifier.py train ./generated-embeddings/");
 
-        Utils dataAugUtil2;
-        dataAugUtil2.listSubPath ("./aligned-images/");
-        std::map<string, std::vector<string>> dataAugOutputs = dataAugUtil2.getFileNames ();
 
-        for (auto const &x : dataAugOutputs)
-        {
-            string output;
-
-            for (auto i = x.second.begin (); i != x.second.end (); i++)
-            {
-                output = "rm " + x.first + '/' + *i;
-                repsSystem = system (output.c_str ());
-            }
-        }
+        repsSystem = system("rm -rf ./aligned-images/*");
     }
 
 

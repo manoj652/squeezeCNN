@@ -42,7 +42,7 @@ bool Utils::listSubPath (const path &dirpath)
         }
         for (auto &&x : directory_iterator (dirpath))
         {
-            if (is_directory (x))
+            if (is_directory(x))
             {
                 directory = x.path ().string ();
                 _directories.push_back (directory);
@@ -89,6 +89,8 @@ void Utils::generateOutputPath (std::string inputP, std::string outputFileName, 
     std::vector<string> vect = splitText (inputP, '/');
     vect[vect.size () - 2] = outputFileName;
     outputP = vectorToString (vect);
+    string command = "mkdir "+outputP;
+    system(command.c_str());
 }
 
 std::vector<string> Utils::splitText (std::string fileToSplit, char delimiter)

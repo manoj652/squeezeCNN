@@ -12,6 +12,10 @@ We use a threshold in order to accept or no the CNN result. The threshold is cur
 The classification is done using the linear SVM classifier which provided the best results for the smallest latency, going against our expectations.
 The classifier is trained using sklearn and saved into a pickle time. The training process is entirely done in Python using the classifier.py executable in the src folder.
 
+The complete flow is described in the following schematics :
+
+![Flow](./doc/Arquitetura-Naif.jpg)
+
 ## Training the classifier :
 
 The pictures should be put in the training-images folder, in subfolders corresponding to the label and following the firstName-lastName syntax. The pictures should only include the corresponding individual and a unified background to avoid surprises.

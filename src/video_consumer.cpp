@@ -12,6 +12,9 @@ cv::Mat mat2;
 /* Util function to infer the face using the python classifier */
 void inferFaceStream (string pathToFrame, string &name)
 {
+#ifdef VERBOSE
+    cout << "Inferring video faces..." << endl;
+#endif
     string infercommand = "python classifier.py  infer ./generated-embeddings/classifier.pkl ";
     string pathToComm = pathToFrame;
     infercommand += pathToComm;
@@ -33,11 +36,8 @@ void inferFaceStream (string pathToFrame, string &name)
     std::vector<string> parserResult = parser.splitText (resultat, ' ');
     float accuracy = strtof (parserResult[1].c_str (), 0);
 
-#ifdef VERBOSE
-    cout << "For path : " << pathToComm << endl;
-#endif
     /*Comparing to a threshold */
-    if (accuracy <= 0.8)
+    if (accuracy <= 0.7)
     {
         cout << "Result not accurate enough" << endl;
         cout << "******** Detected " << parserResult[0] << " with " << accuracy * 100 << " accuracy." << endl;
@@ -79,6 +79,9 @@ VideoConsumer::VideoConsumer (std::string brokers, std::string topic, std::strin
 /* Setting consumer without REST queries */
 void VideoConsumer::setConsumer ()
 {
+#ifdef EBUG
+    cout << "Setting up consumer without REST queries..." << endl;
+#endif
     _consumer = (new Consumer (_configuration));
     _consumer->subscribe ({ _topic });
 }
@@ -86,6 +89,9 @@ void VideoConsumer::setConsumer ()
 /* Setting consumer with REST queries */
 void VideoConsumer::setConsumer (string token)
 {
+#ifdef EBUG
+    cout << "Setting up consumer with REST queries..." << endl;
+#endif
     _consumer = (new Consumer (_configuration));
     _consumer->subscribe ({ _topic });
     _token = token;
@@ -96,6 +102,9 @@ void VideoConsumer::setConsumer (string token)
 /*Setting the result producer */
 void VideoConsumer::setProducer ()
 {
+#ifdef EBUG
+    cout << "Setting up result producer..." << endl;
+#endif
     string topic = "video-result-topic";
     _configProd = { { "metadata.broker.list", _brokers } };
     _producer = new Producer (_configProd);
@@ -147,6 +156,7 @@ void VideoConsumer::pollConsumer ()
             cout << "HUGE LATENCY -- WARNING > 1 seconds" << endl;
             while (timestamp / 1000 < result)
             {
+                cout << "Rebalancing..." << endl;
                 msg = _consumer->poll ();
                 jsonPayload = "";
                 for (auto i = msg.get_payload ().begin (); i != msg.get_payload ().end (); i++)
@@ -188,15 +198,14 @@ void VideoConsumer::getVideoFrame ()
     cv::imshow ("Recognition", mat2);
     cv::waitKey (1);
 
-
-    // TODO : Multithread ?
-
     FaceExtracted faceModule = FaceExtracted (mat2, "./outputFrame/frame.jpg");
     std::chrono::high_resolution_clock::time_point t1Face = std::chrono::high_resolution_clock::now ();
     faceModule.detectFaces ();
     std::chrono::high_resolution_clock::time_point t2Face = std::chrono::high_resolution_clock::now ();
     auto durationFace = std::chrono::duration_cast<std::chrono::milliseconds> (t2Face - t1Face).count ();
+#ifdef VERBOSE
     cout << "Faces detection took " << (float)(durationFace / 1000.f) << " seconds" << endl;
+#endif
     std::vector<cv::Rect> facesRect;
     faceModule.getFacesRectangle (facesRect);
     if (facesRect.size () > 0)
@@ -226,7 +235,9 @@ void VideoConsumer::getVideoFrame ()
         }
         std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds> (t2 - t1).count ();
+#ifdef VERBOSE
         cout << "Faces recognition took " << (float)(duration / 1000.f) << " seconds" << endl;
+#endif
 
         if (shouldUseNetwork)
         {
@@ -238,16 +249,18 @@ void VideoConsumer::getVideoFrame ()
                     std::vector<string> parserResult = parser.splitText (name, '-');
                     Employee employee = { parserResult[1], parserResult[0], false };
                     int code = _network.checkEmployee (employee);
+                    string msg = names[i] + " recognized by camera : " + _cameraId;
+                    std::string timestamp = std::to_string (std::time (nullptr));
+
+                    _messageBuilder->key (timestamp);
+                    _messageBuilder->payload (msg);
+
+                    _producer->produce (*_messageBuilder);
                     if (code == 200)
                     {
-                        string msg = names[i] + " recognized by camera : " + _cameraId;
-                        std::string timestamp = std::to_string (std::time (nullptr));
-
-                        _messageBuilder->key (timestamp);
-                        _messageBuilder->payload (msg);
-
-                        _producer->produce (*_messageBuilder);
                         cout << names[i] << " authorized." << endl;
+                    } else {
+                        cout << names[i] << " not authorized." << endl;
                     }
                 }
                 else

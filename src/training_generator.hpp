@@ -27,8 +27,6 @@ class TrainingGenerator
     void displayResult ();
     void saveMatrix ();
     void saveMatrix (std::string);
-    /* optional */
-    // void generateConditionalGan();
 };
 
 #endif // TRAINING_GENERATOR_SQUEEZE

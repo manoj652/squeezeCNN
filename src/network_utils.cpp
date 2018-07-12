@@ -3,7 +3,6 @@
 using namespace std;
 using namespace rapidjson;
 
-int cpt = 0;
 
 NetworkUtils::NetworkUtils (string url, Device device)
 {
@@ -25,6 +24,9 @@ int NetworkUtils::getAuthToken (std::string &token)
 {
     string jsonDevice = "{ \"data\":{\"deviceName\":\"" + _device.deviceName +
                         "\",\"deviceMac\":\"" + _device.deviceMac + "\"} }";
+#ifdef EBUG
+    cout << jsonDevice << endl;
+#endif
     _conn = new RestClient::Connection (_url);
     RestClient::HeaderFields headers;
     headers["Content-Type"] = "application/json";
@@ -55,6 +57,9 @@ int NetworkUtils::checkEmployee (Employee &employee)
 {
     string jsonEmployee = "{ \"data\":{\"firstName\":\"" + employee.firstName +
                           "\",\"lastName\":\"" + employee.lastName + "\"} }";
+#ifdef EBUG
+    cout << jsonEmployee << endl;
+#endif
     _conn = new RestClient::Connection (_url);
     RestClient::HeaderFields headers;
     headers["Content-Type"] = "application/json";
@@ -63,15 +68,6 @@ int NetworkUtils::checkEmployee (Employee &employee)
 
     RestClient::Response r = _conn->post ("/employees/face", jsonEmployee);
     if (r.code == 200) employee.auth = true;
-    if (r.code == 403 && cpt < 5)
-    {
-        // string token;
-        // getAuthToken(token);
-        // checkEmployee(employee);
-        // cpt++;
-    }
-    cpt = 0;
-    cout << r.code << endl;
     return r.code;
 }
 
