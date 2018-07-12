@@ -295,13 +295,13 @@ opencv2/core/ocl.hpp
 -
 
 /home/naif/Documents/squeezeCNN/src/mainAlgo.cpp
-iostream
+chrono
 -
 cstdlib
 -
-thread
+iostream
 -
-chrono
+thread
 -
 pthread.h
 -
@@ -309,14 +309,14 @@ opencv2/videoio.hpp
 -
 face_extraction.hpp
 /home/naif/Documents/squeezeCNN/src/face_extraction.hpp
-training_generator.hpp
-/home/naif/Documents/squeezeCNN/src/training_generator.hpp
-utils.hpp
-/home/naif/Documents/squeezeCNN/src/utils.hpp
 face_tracking.hpp
 /home/naif/Documents/squeezeCNN/src/face_tracking.hpp
 network_utils.hpp
 /home/naif/Documents/squeezeCNN/src/network_utils.hpp
+training_generator.hpp
+/home/naif/Documents/squeezeCNN/src/training_generator.hpp
+utils.hpp
+/home/naif/Documents/squeezeCNN/src/utils.hpp
 video_consumer.hpp
 /home/naif/Documents/squeezeCNN/src/video_consumer.hpp
 

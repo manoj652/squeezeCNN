@@ -5,28 +5,30 @@
 #include <opencv2/opencv.hpp>
 
 /*
-* Class allowing to perform data augmentation in order to multiply
-* our original set of images.
-*/
-class TrainingGenerator {
-private:
-  cv::Mat _originalFrame;
-  cv::Mat _alteredFrame;
-  std::string _outputPath;
-  std::vector<cv::Mat> listOfAlteredFrames;
-public:
-  TrainingGenerator(std::string,std::string);
-  TrainingGenerator(std::string,cv::Mat);
-  ~TrainingGenerator();
+ * Class allowing to perform data augmentation in order to multiply
+ * our original set of images.
+ */
+class TrainingGenerator
+{
+    private:
+    cv::Mat _originalFrame;
+    cv::Mat _alteredFrame;
+    std::string _outputPath;
+    std::vector<cv::Mat> listOfAlteredFrames;
 
-  void rotateImage(double,int);
-  void flipImageHorizontally();
-  void generateGaussianNoise(int);
-  void displayResult();
-  void saveMatrix();
-  void saveMatrix(std::string);
-  /* optional */
-  // void generateConditionalGan();
+    public:
+    TrainingGenerator (std::string, std::string);
+    TrainingGenerator (std::string, cv::Mat);
+    ~TrainingGenerator ();
+
+    void rotateImage (double, int);
+    void flipImageHorizontally ();
+    void generateGaussianNoise (int);
+    void displayResult ();
+    void saveMatrix ();
+    void saveMatrix (std::string);
+    /* optional */
+    // void generateConditionalGan();
 };
 
-#endif //TRAINING_GENERATOR_SQUEEZE
+#endif // TRAINING_GENERATOR_SQUEEZE

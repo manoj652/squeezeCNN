@@ -6,35 +6,39 @@
 #include <restclient-cpp/restclient.h>
 
 #include "../lib/rapidjson/include/rapidjson/document.h"
-#include "../lib/rapidjson/include/rapidjson/writer.h"
 #include "../lib/rapidjson/include/rapidjson/stringbuffer.h"
+#include "../lib/rapidjson/include/rapidjson/writer.h"
 #define URL "http://localhost:8080"
 
-typedef struct {
+typedef struct
+{
     std::string deviceMac;
     std::string deviceName;
 } Device;
 
-typedef struct {
+typedef struct
+{
     std::string lastName;
     std::string firstName;
     bool auth;
 } Employee;
 
-class NetworkUtils {
+class NetworkUtils
+{
     private:
-    RestClient::Connection* _conn;
+    RestClient::Connection *_conn;
     std::string _token;
     std::string _url;
     Device _device;
-    public:
-    NetworkUtils();
-    NetworkUtils(std::string,Device);
-    NetworkUtils(std::string,std::string);
 
-    int getAuthToken(std::string&);
-    int checkEmployee(Employee&);
-    std::string getUrl();
+    public:
+    NetworkUtils ();
+    NetworkUtils (std::string, Device);
+    NetworkUtils (std::string, std::string);
+
+    int getAuthToken (std::string &);
+    int checkEmployee (Employee &);
+    std::string getUrl ();
 };
 
 #endif

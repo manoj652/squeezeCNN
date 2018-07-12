@@ -11,7 +11,27 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39c5f931-fa6c-4937-ab07-9cecbe5ed1c9" name="Default" comment="" />
+    <list default="true" id="39c5f931-fa6c-4937-ab07-9cecbe5ed1c9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifier.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/squeezecnn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base64.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/base64.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base64.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/base64.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/face_extraction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/face_extraction.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/face_extraction.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/face_extraction.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/face_tracking.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/face_tracking.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/face_tracking.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/face_tracking.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainAlgo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainAlgo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network_utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/network_utils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network_utils.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/network_utils.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/training_generator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/training_generator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/training_generator.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/training_generator.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_consumer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_consumer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_consumer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_consumer.hpp" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,34 +46,28 @@
       <file leaf-file-name="mainAlgo.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-431">
-              <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
+            <state relative-caret-position="-1117">
+              <caret line="252" column="63" selection-start-line="252" selection-start-column="63" selection-end-line="252" selection-end-column="63" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#1372#1416#0" expanded="true" />
+                <element signature="e#4331#4366#0" expanded="true" />
+                <element signature="e#4639#4901#0" expanded="true" />
+                <element signature="e#5059#5130#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_consumer.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="video_consumer.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1274">
-              <caret line="234" column="42" selection-start-line="234" selection-start-column="42" selection-end-line="234" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="375">
-                <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
+            <state relative-caret-position="570">
+              <caret line="104" column="55" selection-start-line="104" selection-start-column="55" selection-end-line="104" selection-end-column="55" />
+              <folding>
+                <element signature="e#1021#1065#0" expanded="true" />
+                <element signature="e#9119#9149#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,9 +80,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/mainAlgo.cpp" />
         <option value="$PROJECT_DIR$/src/video_consumer.cpp" />
-        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -153,6 +167,8 @@
       <workItem from="1531337882178" duration="242000" />
       <workItem from="1531338154281" duration="268000" />
       <workItem from="1531338522683" duration="751000" />
+      <workItem from="1531339420077" duration="221000" />
+      <workItem from="1531399861002" duration="1528000" />
     </task>
     <task id="LOCAL-00001" summary="Updated readme">
       <created>1531339100919</created>
@@ -179,17 +195,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1261000" />
+    <option name="totallyTimeSpent" value="3010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="66" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18888289" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18888289" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32910052" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.3284055" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32910052" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32921347" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32910052" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -198,10 +217,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32921347" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,10 +236,84 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#1372#1416#0" expanded="true" />
+            <element signature="e#4331#4366#0" expanded="true" />
+            <element signature="e#4639#4901#0" expanded="true" />
+            <element signature="e#5059#5130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3510">
+          <caret line="234" column="42" selection-start-line="234" selection-start-column="42" selection-end-line="234" selection-end-column="42" />
+          <folding>
+            <element signature="e#1021#1065#0" expanded="true" />
+            <element signature="e#9119#9149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="375">
+            <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#1372#1416#0" expanded="true" />
+            <element signature="e#4331#4366#0" expanded="true" />
+            <element signature="e#4639#4901#0" expanded="true" />
+            <element signature="e#5059#5130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3510">
+          <caret line="234" column="42" selection-start-line="234" selection-start-column="42" selection-end-line="234" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="375">
+            <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4350">
           <caret line="290" column="89" selection-start-line="290" selection-start-column="89" selection-end-line="290" selection-end-column="89" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#1372#1416#0" expanded="true" />
+            <element signature="e#4331#4366#0" expanded="true" />
+            <element signature="e#4639#4901#0" expanded="true" />
+            <element signature="e#5059#5130#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -248,41 +339,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#1372#1416#0" expanded="true" />
+            <element signature="e#4331#4366#0" expanded="true" />
+            <element signature="e#4639#4901#0" expanded="true" />
+            <element signature="e#5059#5130#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
+    <entry file="file://$PROJECT_DIR$/readme.md" />
+    <entry file="file://$PROJECT_DIR$/classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1274">
-          <caret line="234" column="42" selection-start-line="234" selection-start-column="42" selection-end-line="234" selection-end-column="42" />
-        </state>
+        <state relative-caret-position="-1086" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-431">
-          <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="638">
-            <caret line="263" selection-start-line="263" selection-end-line="267" selection-end-column="26" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/classifier.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="375">
@@ -293,9 +373,29 @@
           </second_editor>
         </state>
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1117">
+          <caret line="252" column="63" selection-start-line="252" selection-start-column="63" selection-end-line="252" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#1372#1416#0" expanded="true" />
+            <element signature="e#4331#4366#0" expanded="true" />
+            <element signature="e#4639#4901#0" expanded="true" />
+            <element signature="e#5059#5130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="104" column="55" selection-start-line="104" selection-start-column="55" selection-end-line="104" selection-end-column="55" />
+          <folding>
+            <element signature="e#1021#1065#0" expanded="true" />
+            <element signature="e#9119#9149#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
