@@ -40,6 +40,11 @@ In order to use the program with a video file, simply put the file path in the -
 
 The program read from the webcam with the '0' url by default. You can change this by simply overriding one line of the main file.
 
+Some macros can be used to manage the program.
+* MULTITHREAD allow multithreading.
+* ISPLAY_STREAM allow the stream to be displayed. It is to be disabled on systems without a GUI.
+* VERBOSE display more stdout output.
+* EBUG display sensitive debugging informations.
 
 ## Command lines attributes
 
