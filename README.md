@@ -58,6 +58,7 @@ be available.
 
 * --align_folder_out : Folder to contain the aligned images. *WARNING* : For this version, should always be aligned-images.
 
+* --groupid : Specify the groupId of the consumer
 # Dependencies
 
 * OpenCV > 3.1 (New tracking library required)

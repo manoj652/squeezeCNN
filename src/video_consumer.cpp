@@ -145,7 +145,7 @@ void VideoConsumer::pollConsumer ()
         int cols = document["cols"].GetInt ();
         int type = document["type"].GetInt ();
         string cameraId = document["cameraId"].GetString ();
-        if (_cameraId == cameraId && cameraId != "")
+        if (_cameraId != cameraId && cameraId != "")
         {
             return;
         }
@@ -196,8 +196,10 @@ void VideoConsumer::getVideoFrame ()
 
     this->pollConsumer ();
     if (mat2.empty () || mat2.rows == 0 || mat2.cols == 0) return;
+#ifdef ISPLAY_STREAM
     cv::imshow ("Recognition", mat2);
     cv::waitKey (1);
+#endif
 
     FaceExtracted faceModule = FaceExtracted (mat2, "./outputFrame/frame.jpg");
     std::chrono::high_resolution_clock::time_point t1Face = std::chrono::high_resolution_clock::now ();
@@ -295,8 +297,10 @@ void VideoConsumer::getVideoFrame ()
                 isTrackerOk = trackers[i].isTrackingOk ();
                 if (!isTrackerOk) break;
             }
+#ifdef ISPLAY_STREAM
             cv::imshow ("Video", trackers[trackers.size () - 1].getFrame ());
             cv::waitKey (1);
+#endif
         }
     }
     //--------

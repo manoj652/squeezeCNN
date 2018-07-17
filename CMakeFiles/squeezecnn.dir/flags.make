@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -O3 -lrestclient-cpp -lrdkafka -lz -lpthread -lrt -fopenmp -g  
 
-CXX_DEFINES = 
+CXX_DEFINES = -DISPLAY_STREAM -DMULTITHREAD
 
 CXX_INCLUDES = -isystem /usr/local/include -isystem /usr/local/include/opencv -I/usr/include/x86_64-linux-gnu 
 

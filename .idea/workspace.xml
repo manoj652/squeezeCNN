@@ -12,8 +12,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39c5f931-fa6c-4937-ab07-9cecbe5ed1c9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeFiles/squeezecnn.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/squeezecnn.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeFiles/squeezecnn.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/squeezecnn.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeFiles/squeezecnn.dir/src/mainAlgo.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/squeezecnn.dir/src/mainAlgo.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/outputFrame/frame.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/outputFrame/frame.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputFrame/frame.jpg1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/outputFrame/frame.jpg1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/squeezecnn" beforeDir="false" afterPath="$PROJECT_DIR$/squeezecnn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainAlgo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainAlgo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_consumer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_consumer.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
@@ -30,34 +42,39 @@
       <file leaf-file-name="mainAlgo.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3615">
-              <caret line="241" column="93" selection-start-line="241" selection-start-column="93" selection-end-line="241" selection-end-column="93" />
+            <state relative-caret-position="297">
+              <caret line="369" column="94" selection-start-line="369" selection-start-column="94" selection-end-line="369" selection-end-column="94" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <element signature="e#1372#1416#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_consumer.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="video_consumer.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="257" column="58" selection-start-line="257" selection-start-column="58" selection-end-line="257" selection-end-column="58" />
+            <state relative-caret-position="807">
+              <caret line="302" column="6" selection-start-line="302" selection-start-column="6" selection-end-line="302" selection-end-column="6" />
               <folding>
-                <element signature="e#325#368#0" expanded="true" />
+                <element signature="e#6079#6133#0" expanded="true" />
+                <element signature="e#10263#10357#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="90">
-                <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+              <first_editor relative-caret-position="405">
+                <caret line="60" selection-start-line="60" selection-end-line="60" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -105,6 +122,7 @@
         <option value="$PROJECT_DIR$/src/training_generator.hpp" />
         <option value="$PROJECT_DIR$/src/network_utils.cpp" />
         <option value="$PROJECT_DIR$/src/classifier.py" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/video_consumer.cpp" />
         <option value="$PROJECT_DIR$/src/mainAlgo.cpp" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -136,7 +154,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,6 +170,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -197,6 +215,7 @@
       <workItem from="1531399861002" duration="4836000" />
       <workItem from="1531411757886" duration="2147000" />
       <workItem from="1531486618701" duration="1889000" />
+      <workItem from="1531855849193" duration="1074000" />
     </task>
     <task id="LOCAL-00001" summary="Updated readme">
       <created>1531339100919</created>
@@ -223,7 +242,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10354000" />
+    <option name="totallyTimeSpent" value="11428000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="66" width="1853" height="1055" extended-state="6" />
@@ -231,10 +250,11 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.18888289" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32910052" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32910052" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32910052" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32910052" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -246,7 +266,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32910052" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32910052" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +287,61 @@
           <caret line="241" column="93" selection-start-line="241" selection-start-column="93" selection-end-line="241" selection-end-column="93" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1372#1416#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/training_generator.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network_utils.hpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network_utils.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding>
+            <element signature="e#558#585#0" expanded="true" />
+            <element signature="e#917#940#0" expanded="true" />
+            <element signature="e#1472#1501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3855">
+          <caret line="257" column="58" selection-start-line="257" selection-start-column="58" selection-end-line="257" selection-end-column="58" />
+          <folding>
+            <element signature="e#6079#6133#0" expanded="true" />
+            <element signature="e#10263#10357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3615">
+          <caret line="241" column="93" selection-start-line="241" selection-start-column="93" selection-end-line="241" selection-end-column="93" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -278,7 +351,8 @@
         <state relative-caret-position="3930">
           <caret line="262" column="71" selection-start-line="262" selection-start-column="71" selection-end-line="262" selection-end-column="71" />
           <folding>
-            <element signature="e#325#368#0" expanded="true" />
+            <element signature="e#6079#6133#0" expanded="true" />
+            <element signature="e#10263#10357#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -323,7 +397,6 @@
           <caret line="252" column="45" selection-start-line="252" selection-start-column="45" selection-end-line="252" selection-end-column="45" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1372#1416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -356,7 +429,6 @@
           <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1372#1416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -366,7 +438,8 @@
         <state relative-caret-position="3510">
           <caret line="234" column="42" selection-start-line="234" selection-start-column="42" selection-end-line="234" selection-end-column="42" />
           <folding>
-            <element signature="e#325#368#0" expanded="true" />
+            <element signature="e#6079#6133#0" expanded="true" />
+            <element signature="e#10263#10357#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -389,7 +462,6 @@
           <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1372#1416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -419,7 +491,6 @@
           <caret line="290" column="89" selection-start-line="290" selection-start-column="89" selection-end-line="290" selection-end-column="89" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1372#1416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -446,7 +517,6 @@
         <state>
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1372#1416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -486,13 +556,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="807">
+          <caret line="302" column="6" selection-start-line="302" selection-start-column="6" selection-end-line="302" selection-end-column="6" />
+          <folding>
+            <element signature="e#6079#6133#0" expanded="true" />
+            <element signature="e#10263#10357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3615">
-          <caret line="241" column="93" selection-start-line="241" selection-start-column="93" selection-end-line="241" selection-end-column="93" />
+        <state relative-caret-position="297">
+          <caret line="369" column="94" selection-start-line="369" selection-start-column="94" selection-end-line="369" selection-end-column="94" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1372#1416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -500,8 +583,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="90">
-            <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+          <first_editor relative-caret-position="405">
+            <caret line="60" selection-start-line="60" selection-end-line="60" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -511,16 +594,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="257" column="58" selection-start-line="257" selection-start-column="58" selection-end-line="257" selection-end-column="58" />
-          <folding>
-            <element signature="e#325#368#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
