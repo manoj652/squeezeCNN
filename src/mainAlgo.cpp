@@ -16,7 +16,7 @@
 
 #define NUM_THREADS 4
 #define THRESHOLD 0.8
-#define URL "http://localhost:8080"
+#define URL "http://179.106.238.28:8080"
 
 using namespace cv;
 using namespace std;
@@ -83,7 +83,7 @@ void getAuthToken ()
 void *streamLogic (void *cameraId)
 {
     string cameraid = *(string *)cameraId;
-    VideoConsumer consumer ("localhost:9092", "video-stream-topic", "testId2", cameraid);
+    VideoConsumer consumer ("179.106.238.28:9092", "video-stream-topic", "testId2", cameraid);
     consumer.setConsumer (token);
     consumer.setProducer ();
     while (1)

@@ -12,77 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39c5f931-fa6c-4937-ab07-9cecbe5ed1c9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aligned-images/cache.t7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/ompver_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/ompver_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/src/base64.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/src/face_extraction.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/src/face_tracking.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/src/mainAlgo.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/src/network_utils.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/src/training_generator.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/src/utils.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/squeezecnn.dir/src/video_consumer.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/squeezeCNN.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/squeezecnn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated-embeddings/classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/generated-embeddings/classifier.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated-embeddings/labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/generated-embeddings/labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated-embeddings/reps.csv" beforeDir="false" afterPath="$PROJECT_DIR$/generated-embeddings/reps.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/outputFrame/frame.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/outputFrame/frame.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainAlgo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainAlgo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/network_utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/network_utils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/training_generator.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/training_generator.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/video_consumer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_consumer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/dfs.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/dsvxcsd.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/fdsfcv.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/fesfsd.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/fezdvccx.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/fsdzxsa.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/indefdfdx.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/jimmy-fallon-12f3bb49f65038cf.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training-images/jimmy-fallon/maxresdefault.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputFrame/frame.jpg1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/outputFrame/frame.jpg1.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
@@ -99,7 +30,7 @@
       <file leaf-file-name="mainAlgo.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="3615">
               <caret line="241" column="93" selection-start-line="241" selection-start-column="93" selection-end-line="241" selection-end-column="93" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
@@ -109,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_consumer.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="video_consumer.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="262" column="71" selection-start-line="262" selection-start-column="71" selection-end-line="262" selection-end-column="71" />
+            <state relative-caret-position="615">
+              <caret line="257" column="58" selection-start-line="257" selection-start-column="58" selection-end-line="257" selection-end-column="58" />
               <folding>
                 <element signature="e#325#368#0" expanded="true" />
               </folding>
@@ -121,12 +52,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="225">
-                <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -265,6 +196,7 @@
       <workItem from="1531339420077" duration="221000" />
       <workItem from="1531399861002" duration="4836000" />
       <workItem from="1531411757886" duration="2147000" />
+      <workItem from="1531486618701" duration="1889000" />
     </task>
     <task id="LOCAL-00001" summary="Updated readme">
       <created>1531339100919</created>
@@ -291,7 +223,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8465000" />
+    <option name="totallyTimeSpent" value="10354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="66" width="1853" height="1055" extended-state="6" />
@@ -299,7 +231,6 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.18888289" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32910052" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32910052" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -315,6 +246,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32910052" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32910052" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +262,61 @@
     <option name="LAST_COMMIT_MESSAGE" value="Moved documentation" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3615">
+          <caret line="241" column="93" selection-start-line="241" selection-start-column="93" selection-end-line="241" selection-end-column="93" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#1372#1416#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3930">
+          <caret line="262" column="71" selection-start-line="262" selection-start-column="71" selection-end-line="262" selection-end-column="71" />
+          <folding>
+            <element signature="e#325#368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/training_generator.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network_utils.hpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network_utils.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding>
+            <element signature="e#558#585#0" expanded="true" />
+            <element signature="e#917#940#0" expanded="true" />
+            <element signature="e#1472#1501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="225">
+            <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3780">
@@ -499,19 +486,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="262" column="71" selection-start-line="262" selection-start-column="71" selection-end-line="262" selection-end-column="71" />
-          <folding>
-            <element signature="e#325#368#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mainAlgo.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="3615">
           <caret line="241" column="93" selection-start-line="241" selection-start-column="93" selection-end-line="241" selection-end-column="93" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
@@ -521,19 +498,29 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="225">
-            <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/video_consumer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="257" column="58" selection-start-line="257" selection-start-column="58" selection-end-line="257" selection-end-column="58" />
+          <folding>
+            <element signature="e#325#368#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

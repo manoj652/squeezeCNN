@@ -8,7 +8,7 @@
 #include "../lib/rapidjson/include/rapidjson/document.h"
 #include "../lib/rapidjson/include/rapidjson/stringbuffer.h"
 #include "../lib/rapidjson/include/rapidjson/writer.h"
-#define URL "http://localhost:8080"
+#define URL "http://179.106.238.28:8080"
 
 typedef struct
 {

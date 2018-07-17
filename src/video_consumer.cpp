@@ -5,6 +5,7 @@ using namespace cppkafka;
 using namespace rapidjson;
 
 #define UNKNOWN_PATH_FOLDER "./unknown_faces/"
+#define THRESHOLD_DETECT 0.8
 
 cv::Mat mat;
 cv::Mat mat2;
@@ -37,7 +38,7 @@ void inferFaceStream (string pathToFrame, string &name)
     float accuracy = strtof (parserResult[1].c_str (), 0);
 
     /*Comparing to a threshold */
-    if (accuracy <= 0.7)
+    if (accuracy <= THRESHOLD_DETECT)
     {
         cout << "Result not accurate enough" << endl;
         cout << "******** Detected " << parserResult[0] << " with " << accuracy * 100 << " accuracy." << endl;
