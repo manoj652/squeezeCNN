@@ -16,7 +16,7 @@
 
 #define NUM_THREADS 4
 #define THRESHOLD 0.8
-#define URL "http://179.106.238.28:8080"
+#define URL "http://179.106.230.91:8080"
 
 using namespace cv;
 using namespace std;
@@ -26,6 +26,7 @@ NetworkUtils network = NetworkUtils (URL, device);
 std::vector<string> _listCameras;
 string token;
 string groupid;
+string brokers;
 
 void inferFace (string pathToFrame, string &name)
 {
@@ -84,7 +85,7 @@ void getAuthToken ()
 void *streamLogic (void *cameraId)
 {
     string cameraid = *(string *)cameraId;
-    VideoConsumer consumer ("179.106.238.28:9092", "video-stream-topic", groupid, cameraid);
+    VideoConsumer consumer (brokers, "video-stream-topic", groupid, cameraid);
     consumer.setConsumer (token);
     consumer.setProducer ();
     while (1)
@@ -122,6 +123,7 @@ int main (int argc, char **argv)
                               "{align_folder_in |./training-images/ | Folder containing images to align }"
                               "{align_folder_out | ./aligned-images | Folder to contain aligned images }"
                               "{image  || image to process}"
+                              "{brokers | 179.106.230.91:9092 | Broker IP }"
                               "{groupid | testId | Group consumer Id}");
 
     parser.about ("SqueezeCNN v0.0.1");
@@ -139,6 +141,7 @@ int main (int argc, char **argv)
     bool train = parser.get<bool> ("train");
     bool align = parser.get<bool> ("align");
     groupid = parser.get<string>("groupid");
+    brokers = parser.get<string>("brokers");
     string align_folder_in = parser.get<String> ("align_folder_in");
     string align_folder_out = parser.get<String> ("align_folder_out");
 
@@ -367,7 +370,7 @@ int main (int argc, char **argv)
             pthread_join (tids[i], NULL);
         }
         #else
-        VideoConsumer consumer ("179.106.238.28:9092", "video-stream-topic", groupid, "testCam");
+        VideoConsumer consumer (brokers, "video-stream-topic", groupid, "testCam");
         consumer.setConsumer (token);
         consumer.setProducer ();
         while (1)

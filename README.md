@@ -25,7 +25,7 @@ The linear SVM classifier gave consequently better results than the Random Fores
 
 ## Using the program as a remote stream face detector :
 
-The program is action as a kafka consumer when using the --stream attribute. It follows the following architecture :
+The program is acting as a kafka consumer when using the --stream attribute. It follows the following architecture :
 
 ![Flow](./doc/FlowSqueezeFace.jpg)
 
@@ -63,7 +63,9 @@ be available.
 
 * --align_folder_out : Folder to contain the aligned images. *WARNING* : For this version, should always be aligned-images.
 
-* --groupid : Specify the groupId of the consumer
+* --groupid : Specify the groupId of the consumer. Default is testId2.
+
+* --brokers : Specify the broker IP and port. Default is 179.106.230.91:9092
 
 # Dependencies
 
