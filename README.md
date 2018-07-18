@@ -64,10 +64,12 @@ be available.
 * --align_folder_out : Folder to contain the aligned images. *WARNING* : For this version, should always be aligned-images.
 
 * --groupid : Specify the groupId of the consumer
+
 # Dependencies
 
 * OpenCV > 3.1 (New tracking library required)
 * cppkafka -librdkafka (gets isntalled to usr/local/lib, move to /usr/lib to get it to work)
 * boost
+* Openface and dependencies (openface directory should be put in the root of squeezecnn)
 * restclient - curl
 * rapidjson (headers only)
