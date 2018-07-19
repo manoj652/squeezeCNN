@@ -28,6 +28,14 @@ class Utils
     void generateOutputPath (std::string, std::string, std::string &);
     std::vector<std::string> splitText (std::string, char);
     std::string vectorToString (std::vector<std::string>);
+
+    void *recognitionOkResultAction(void *params);
+
+    void *recognitionBadResultAction(void *params);
+
+    void *authOkResultAction(void *params);
+
+    void *authBadResultAction(void *params);
 };
 
 #endif // SQUEEZE-UTILS_HPP

@@ -3,8 +3,6 @@
 #include <iostream>
 #include <thread>
 
-#include <pthread.h>
-
 #include <opencv2/videoio.hpp>
 
 #include "face_extraction.hpp"
@@ -27,6 +25,7 @@ std::vector<string> _listCameras;
 string token;
 string groupid;
 string brokers;
+Utils resultAction;
 
 void inferFace (string pathToFrame, string &name)
 {
@@ -60,11 +59,13 @@ void inferFace (string pathToFrame, string &name)
         cout << "Result not accurate enough" << endl;
         cout << "******** Detected " << parserResult[0] << " with " << accuracy * 100 << " accuracy." << endl;
         name = "unknown";
+        resultAction.recognitionBadResultAction(nullptr);
     }
     else
     {
         cout << "Detected " << parserResult[0] << " with " << accuracy * 100 << " % accuracy." << endl;
         name = parserResult[0];
+        resultAction.recognitionOkResultAction(nullptr);
     }
     cout << endl;
     cout << endl;

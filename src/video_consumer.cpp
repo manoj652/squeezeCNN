@@ -9,6 +9,7 @@ using namespace rapidjson;
 
 cv::Mat mat;
 cv::Mat mat2;
+Utils resultActionUtils;
 
 /* Util function to infer the face using the python classifier */
 void inferFaceStream (string pathToFrame, string &name)
@@ -46,11 +47,13 @@ void inferFaceStream (string pathToFrame, string &name)
         cv::Mat unknownFace = cv::imread (pathToFrame);
         std::time_t timestamp = std::time (nullptr);
         cv::imwrite (UNKNOWN_PATH_FOLDER + std::to_string (timestamp) + ".jpg", unknownFace);
+        resultActionUtils.recognitionBadResultAction(nullptr);
     }
     else
     {
         cout << "Detected " << parserResult[0] << " with " << accuracy * 100 << " % accuracy." << endl;
         name = parserResult[0];
+        resultActionUtils.recognitionOkResultAction(nullptr);
     }
     cout << endl;
     cout << endl;
@@ -155,9 +158,9 @@ void VideoConsumer::pollConsumer ()
         if (timestamp / 1000 < result - 1)
         {
             cout << "HUGE LATENCY -- WARNING > 1 seconds" << endl;
+            cout << "Rebalancing..." << endl;
             while (timestamp / 1000 < result)
             {
-                cout << "Rebalancing..." << endl;
                 msg = _consumer->poll ();
                 jsonPayload = "";
                 for (auto i = msg.get_payload ().begin (); i != msg.get_payload ().end (); i++)
@@ -170,6 +173,7 @@ void VideoConsumer::pollConsumer ()
                 type = document["type"].GetInt ();
                 timestamp = document["timestamp"].GetInt64 ();
             }
+            cout << "Rebalanced stream" << endl;
         }
         string data = document["data"].GetString ();
         std::vector<BYTE> decodedBytes = base64_decode (data);
@@ -262,8 +266,10 @@ void VideoConsumer::getVideoFrame ()
                     if (code == 200)
                     {
                         cout << names[i] << " authorized." << endl;
+                        resultActionUtils.authOkResultAction(nullptr);
                     } else {
                         cout << names[i] << " not authorized." << endl;
+                        resultActionUtils.authBadResultAction(nullptr);
                     }
                 }
                 else

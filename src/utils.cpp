@@ -90,7 +90,7 @@ void Utils::generateOutputPath (std::string inputP, std::string outputFileName, 
     vect[vect.size () - 2] = outputFileName;
     outputP = vectorToString (vect);
     string command = "mkdir "+outputP;
-    system(command.c_str());
+    int resultSys = system(command.c_str());
 }
 
 std::vector<string> Utils::splitText (std::string fileToSplit, char delimiter)
@@ -130,4 +130,20 @@ void Utils::displayVector (std::vector<string> vect)
     {
         cout << *i << " value of vector" << endl;
     }
+}
+
+void *Utils::recognitionOkResultAction(void *params) {
+
+}
+
+void *Utils::recognitionBadResultAction(void *params) {
+
+}
+
+void *Utils::authOkResultAction(void *params) {
+
+}
+
+void *Utils::authBadResultAction(void *params) {
+
 }

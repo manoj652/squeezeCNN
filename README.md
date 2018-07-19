@@ -14,6 +14,8 @@ The classifier is trained using sklearn and saved into a pickle time. The traini
 
 The complete flow is described in the following schematics :
 
+/!\ *Run configure.sh in order to set up the local variable needed by the REST API and Kafka program.* /!\
+
 ![Flow](./doc/Arquitetura-Naif.jpg)
 
 ## Training the classifier :
@@ -32,6 +34,9 @@ The program is acting as a kafka consumer when using the --stream attribute. It 
 The program is dispatched among multiple threads, based on how many cameras are configured. The threads are programmed based on the cameraId provided in the _listCameras global variable, and the cameraId provided in the JSON by the producer.
 
 In order to speedup the process, if a latency of more than one second is detected, the next frames are not processed until the stream is real-time again.
+
+It is possible to implement your own actions to a recognition and authorization result by implementing the corresponding methods in the Utils class.
+They take a void* as the parameter type and return a void* also.
 
 ## Using the program as a local webcam or video file face recognition :
 
@@ -59,11 +64,11 @@ be available.
 
 * --align : Align the pictures speicified by the align_folder_in attribute and save them to the align_folder_out folder.
 
-* --align_folder_in : Folder containing the non-aligned images.
+* --align_folder_in : Optional. Folder containing the non-aligned images.
 
-* --align_folder_out : Folder to contain the aligned images. *WARNING* : For this version, should always be aligned-images.
+* --align_folder_out : Optional. Folder to contain the aligned images. *WARNING* : For this version, should always be aligned-images.
 
-* --groupid : Specify the groupId of the consumer. Default is testId2.
+* --groupid : Specify the groupId of the consumer. Must be different on different machines. Default is testId2.
 
 * --brokers : Specify the broker IP and port. Default is 179.106.230.91:9092
 
